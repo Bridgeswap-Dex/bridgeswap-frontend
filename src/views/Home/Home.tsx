@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout, Button, Image, Card, Flex } from '@pancakeswap/uikit'
+import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -10,6 +10,7 @@ import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
+import partners from 'config/constants/partners'
 
 const Hero = styled.div`
   align-items: center;
@@ -117,7 +118,6 @@ const AdsCards = styled(BaseLayout)`
 
 const BridgeBoard = styled.div`
   align-items: center;
-  border: 2px solid #2424a8;
   box-shadow: 3px 7px 5px 7px #121254;
   border-radius: 20px;
   background: #09092B;
@@ -142,6 +142,7 @@ const FeatBtn = styled(Button)`
 `
 
 const FeatsGrid = styled(BaseLayout)`
+  width: 100%;
   align-items: start;
   & > div {
     grid-column: span 6;
@@ -149,15 +150,98 @@ const FeatsGrid = styled(BaseLayout)`
 `
 
 const PerformersFlex = styled(Flex)`
-  align-items: start;
-  & > div {
-    grid-column: span 6;
+  width: 100%;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    justify-content: flex-start;
+    
   }
 `
 
-const Performer = styled.div`
-  display: flex;
-  border: 2px solid white;
+const Performer = styled(Flex)`
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  
+`
+const TopSymbol = styled(Flex)`
+  align-items: center;
+  justify-content: flex-start;
+`
+const TopAPR = styled(Flex)`
+  margin-top: 12px;
+`
+
+const StatsValue = styled(Flex)`
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    flex-direction: row;
+    
+  }
+
+`
+
+const BridgeLottery = styled(Flex)`
+  background-image: url(/images/decorations/bg-design.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-radius: 12px;
+  text-align: center;
+  padding: 30px 0px;
+  margin: 12px;
+  
+`
+
+const StatsFigures = styled.div`
+  width: 100%;
+`
+const Partners = styled(Grid)`
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 18px;
+  }
+  ${({ theme }) => theme.mediaQueries.lg} {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 21px;
+  }
+
+`
+const Partner = styled.div`
+  background: #18186B;
+  height: 20px;
+  width: 75px;
+  border-radius: 5px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    height: 25px;
+    width: 82px;
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
+    height: 30px;
+    width: 95px;
+  }
+  ${({ theme }) => theme.mediaQueries.lg} {
+    height: 38px;
+    width: 100px;
+  }
 `
 
 const Home: React.FC = () => {
@@ -252,32 +336,49 @@ const Home: React.FC = () => {
           </Heading>
           <FeatsGrid>
             <Card style={{width: "100%", border: "20x solid white"}}>
-              <Heading as="h5" mb="10px" color="text">
+              <Heading as="h5" pt="12px" mb="10px" color="text">
                 {t('Pools')}
               </Heading>
               <PerformersFlex>
                 <Performer>
-
-                  <img width="40px" height="40px" src="/images/farms/ada-bnb.svg" alt="Pools coming soon" />
-                  <Text small fontSize='12px' color="text">
-                    {t('ADA-BNB')}
-                  </Text>
+                  <TopSymbol>
+                    <img width="40px" height="40px" src="/images/farms/ada-bnb.svg" alt="Pools coming soon" />
+                    <Text ml="5px" small fontSize='12px' color="text">
+                      {t('BNB')}
+                    </Text>
+                  </TopSymbol>
+                  <TopAPR>
+                    <Text mr="5px">
+                      APR:
+                    </Text>
+                    <Text color="text">
+                      171.7%
+                    </Text>
+                  </TopAPR>
                 </Performer>
-
               </PerformersFlex>
             </Card>
             <Card style={{width: "100%", border: "20x solid white"}}>
-              <Heading as="h5" mb="10px" color="text">
+              <Heading as="h5" pt="12px" mb="10px" color="text">
                 {t('Farms')}
               </Heading>
               <PerformersFlex>
                 <Performer>
-                  <img width="40px" height="40px" src="/images/farms/alice-bnb.svg" alt="Pools coming soon"/>
-                  <Text small fontSize='12px' color="text">
-                    {t('ADA-BNB')}
-                  </Text>
+                  <TopSymbol>
+                    <img width="40px" height="40px" src="/images/farms/alice-bnb.svg" alt="Pools coming soon"/>
+                    <Text ml="5px" small fontSize='12px' color="text">
+                      {t('ADA-BNB')}
+                    </Text>
+                  </TopSymbol>
+                  <TopAPR>
+                    <Text mr="5px">
+                      APR:
+                    </Text>
+                    <Text color="text">
+                      171.7%
+                    </Text>
+                  </TopAPR>
                 </Performer>
-
               </PerformersFlex>
             
             </Card> 
@@ -285,15 +386,44 @@ const Home: React.FC = () => {
           {/* <FarmStakingCard /> */}
           {/* <LotteryCard /> */}
         </BridgeBoard>
-        <CTACards>
+        {/* <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
           <WinCard />
-        </CTACards>
-        <Cards>
+        </CTACards> */}
+        {/* <Cards>
           <CakeStats />
           <TotalValueLockedCard />
-        </Cards>
+        </Cards> */}
+
+        <StatsValue>
+          <BridgeLottery>
+            <Text fontSize="12px" mb="15px" color="text">
+              {t("The BridgeSwap Lottery")}
+            </Text><Text fontWeight="700" mb="15px" fontSize="42px">
+              {t("Win $300000")}
+            </Text>
+            <Text fontSize="12px" mb="22px" color="text">
+              {t("in prizes")}
+            </Text>
+            <Button variant="primary" scale="sm" style={{margin: "10px auto", width: "200px"}}>Buy tickets</Button>
+          </BridgeLottery>
+          <StatsFigures>
+            <CakeStats/>
+            <TotalValueLockedCard />
+          </StatsFigures>
+        </StatsValue>
+
+        <BridgeBoard style={{ marginTop: "20px" }}>
+          <Heading as="h5" pt="12px" mb="30px" color="blue">
+            {t('BridgeSwap Partners')}
+          </Heading>
+              <Partners>
+                {
+                  partners.map((partner) => <Partner>{partner.name}</Partner>)
+                }
+              </Partners>
+        </BridgeBoard>
       </div>
     </Page>
   )

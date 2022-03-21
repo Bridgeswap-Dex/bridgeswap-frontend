@@ -10,6 +10,7 @@ import CardValue from './CardValue'
 const StyledCakeStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 8px;
 `
 
 const Row = styled.div`
@@ -29,19 +30,19 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody>
-        <Heading scale="xl" mb="24px">
+        {/* <Heading scale="xl" mb="24px">
           {t('BRIS Stats')}
-        </Heading>
+        </Heading> */}
         <Row>
-          <Text fontSize="14px">{t('Total BRIS Supply')}</Text>
+          <Text color="text" fontSize="14px">{t('Total BRIS Supply')}</Text>
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{t('Total BRIS Burned')}</Text>
+          <Text color="text" fontSize="14px">{t('Total BRIS Burned')}</Text>
           <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
         </Row>
         <Row>
-          <Text fontSize="14px">{t('New BRIS/block')}</Text>
+          <Text color="text" fontSize="14px">{t('New BRIS/block')}</Text>
           <CardValue fontSize="14px" decimals={0} value={20} />
         </Row>
       </CardBody>
