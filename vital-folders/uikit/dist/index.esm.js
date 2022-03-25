@@ -1090,7 +1090,7 @@ var Input$1 = styled.input(templateObject_1$Q || (templateObject_1$Q = __makeTem
     return theme.colors.input;
 }, getBoxShadow$1, function (_a) {
     var theme = _a.theme;
-    return theme.colors.text;
+    return theme.colors.background;
 }, getHeight, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;

@@ -201,7 +201,6 @@ const BridgeLottery = styled(Flex)`
   text-align: center;
   padding: 30px 0px;
   margin: 12px;
-  
 `
 
 const StatsFigures = styled.div`

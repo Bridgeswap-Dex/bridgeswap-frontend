@@ -45,8 +45,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   {
     label: t('Lottery'),
     icon: 'TicketIcon',
-    href: '/',
-    // href: '/lottery',
+    href: '/lottery',
   },
   // {
   //   label: t('Collectibles'),
