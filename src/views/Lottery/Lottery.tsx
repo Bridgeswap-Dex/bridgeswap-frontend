@@ -7,6 +7,7 @@ import Hero from './components/Hero'
 import PastDrawsPage from './PastDrawsPage'
 import BridgeLottery from './components/BridgeLottery'
 import TicketBoard from './components/TicketBoard'
+import FinishedRounds from './components/FinishedRounds'
 
 const Lottery: React.FC = () => {
   const lotteryContract = useLottery()
@@ -44,6 +45,7 @@ const Lottery: React.FC = () => {
       <Page>
         <BridgeLottery />
         <TicketBoard />
+        <FinishedRounds />
         {/* <PastLotteryDataContext.Provider
           value={{ historyError, historyData, mostRecentLotteryNumber, currentLotteryNumber }}
         >
