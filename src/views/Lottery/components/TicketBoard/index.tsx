@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
-import { flexbox } from 'styled-system'
 
+// Local states. These values can be updated
 const drawNumber = 329
 const drawTime = "Feb 20, 2022, 1:27 AM"
 const lotteryPrize = "300, 000"
@@ -18,13 +18,14 @@ const Board = styled.div`
     border-radius: 20px;
     width: 95%;
     margin: 0 auto;
+    margin-bottom: 10px;
     padding: 20px;
     background-color: #0F0F71;
     background-image: url(/images/decorations/lottery-prize-bg.svg);
     background-position: center;
     ${({ theme }) => theme.mediaQueries.sm} {
         padding: 50px;
-
+        margin-bottom: 15px;
     }
 `
 const DrawTimeDisplay = styled(Flex)`
@@ -36,7 +37,7 @@ const Draw = styled.div`
     justify-content: space-between;
 
 `
-const PriceDisplay = styled(Flex)`
+const PrizeDisplay = styled(Flex)`
     flex-direction: column;
     justify-content: center;
     margin: 30px auto;
@@ -50,7 +51,7 @@ const PriceDisplay = styled(Flex)`
     }
 
 `
-const PricePot = styled(Flex)`
+const PrizePot = styled(Flex)`
     justify-content: center;
     flex-direction: column;
     
@@ -62,7 +63,7 @@ const PricePot = styled(Flex)`
     }
 `
 
-const PricePotDetails = styled.div`
+const PrizePotDetails = styled.div`
     margin-bottom: 20px;
     margin-right: 0px;
     min-width: 150px;
@@ -136,12 +137,12 @@ const TicketBoard = () => {
                 </Draw>
 
             </DrawTimeDisplay>
-            <PriceDisplay>
+            <PrizeDisplay>
                 <Text color='text'>
-                    {t("Price Pot")}
+                    {t("Prize Pot")}
                 </Text>
-                <PricePot>
-                    <PricePotDetails>
+                <PrizePot>
+                    <PrizePotDetails>
                         <Heading>
                             {t(`$${lotteryPrize}`)}
                         </Heading>
@@ -157,7 +158,7 @@ const TicketBoard = () => {
                             {t(` tickets for this round.`)}
                         </Text>
                         <Button scale="sm" variant="primary">Buy Tickets</Button>                        
-                    </PricePotDetails>
+                    </PrizePotDetails>
 
                     <CountDownTimer>
                         <Text mb="12px" color='text'>
@@ -180,9 +181,9 @@ const TicketBoard = () => {
                             </Time>
                         </CountDown>
                     </CountDownTimer>
-                </PricePot>
+                </PrizePot>
 
-            </PriceDisplay>
+            </PrizeDisplay>
         </Board>
     )
 }
