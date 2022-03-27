@@ -18,10 +18,17 @@ const RoundsContainer = styled.div`
     border-radius: 20px;
     background: linear-gradient(245.94deg, rgba(8, 8, 56, 0.2) -63.8%, rgba(17, 17, 139, 0.2) 73.44%);
     padding: 40px;
-    margin-top: 
+    margin-bottom: 10px; 
 `
 const Title = styled(Flex)`
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+    ${({ theme }) => theme.mediaQueries.sm} {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 `
 
 const HistoryBtnsContainer = styled.div`
@@ -144,7 +151,7 @@ const FinishedRounds = () => {
     return (
         <RoundsContainer>
             <Title>
-                <Heading scale='md' color='text'>Finished Rounds</Heading>
+                <Heading mb='12px' scale='md' color='text'>Finished Rounds</Heading>
                 <HistoryBtnsContainer>
                     <HistoryButtons activeIndex={0} />
                 </HistoryBtnsContainer>
