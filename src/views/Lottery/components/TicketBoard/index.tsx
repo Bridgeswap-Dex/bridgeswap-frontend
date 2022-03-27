@@ -118,9 +118,6 @@ const TimeLabel = styled(Text)`
     font-size: 10px;
 `
 
-
-
-
 const TicketBoard = () => {
     const { t } = useTranslation()
 
