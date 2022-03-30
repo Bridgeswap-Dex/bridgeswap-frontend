@@ -4,11 +4,11 @@ import { PoolConfig, PoolCategory } from './types'
 const pools: PoolConfig[] = [
   {
     sousId: 0,
-    stakingToken: tokens.fswap,
-    earningToken: tokens.fswap,
+    stakingToken: tokens.bris,
+    earningToken: tokens.bris,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x496Cc0609D749216Bb2a999b683468649759D338',
+      56: '0xbe69572b574165658251e19469Ec47AF26AC508F',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

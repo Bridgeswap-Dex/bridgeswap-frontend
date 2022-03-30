@@ -17,7 +17,7 @@ const useAllEarnings = () => {
         
         const calls = farmsConfig.map((farm) => ({
           address: getMasterChefAddress(),
-          name: 'pendingFswap',
+          name: 'pendingBris',
           params: [farm.pid, account],
         }))
   

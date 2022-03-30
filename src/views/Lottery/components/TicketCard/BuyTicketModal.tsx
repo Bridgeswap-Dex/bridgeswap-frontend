@@ -76,16 +76,16 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         onChange={handleChange}
         max={fullBalance}
         symbol={t('Ticket').toUpperCase()}
-        availableSymbol="CAKE"
+        availableSymbol="BRIS"
       />
       <div>
-        <Tips>{t('1 Ticket = %lotteryPrice% CAKE', { lotteryPrice: LOTTERY_TICKET_PRICE })}</Tips>
+        <Tips>{t('1 Ticket = %lotteryPrice% BRIS', { lotteryPrice: LOTTERY_TICKET_PRICE })}</Tips>
       </div>
       <div>
         <Announce>
-          {t('Ticket purchases are final. Your FSWAP cannot be returned to you after buying tickets.')}
+          {t('Ticket purchases are final. Your BRIS cannot be returned to you after buying tickets.')}
         </Announce>
-        <Final>{t('You will spend: %num% CAKE', { num: cakeCosts(val) })}</Final>
+        <Final>{t('You will spend: %num% BRIS', { num: cakeCosts(val) })}</Final>
       </div>
       <ModalActions>
         <Button width="100%" variant="secondary" onClick={onDismiss}>

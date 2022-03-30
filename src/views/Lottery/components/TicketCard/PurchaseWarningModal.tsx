@@ -12,7 +12,7 @@ const WarningModal: React.FC<{ onDismiss?: () => void }> = ({ onDismiss }) => {
       <TicketsList>
         {t('Lottery ticket purchases are final.')}
         <br />
-        {t('Your FSWAP will not be returned to you after you spend it to buy tickets.')}
+        {t('Your BRIS will not be returned to you after you spend it to buy tickets.')}
         <br />
         {t('Tickets are only valid for one lottery draw, and will be burned after the draw.')}
         <br />

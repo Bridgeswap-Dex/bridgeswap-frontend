@@ -3,8 +3,17 @@ const tokens = {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
   },
+  bris: {
+    symbol: 'BRIS',
+    address: {
+      56: '0xA22044dEeD66cc2a64BBA021543030D97B920C2c',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: 'https://bridgeswap.app/',
+  },
   fswap: {
-    symbol: 'Bris',
+    symbol: 'FSWAP',
     address: {
       56: '0x078D1b73bbc94C83bA2371A164761A35a66b8612',
       97: '',

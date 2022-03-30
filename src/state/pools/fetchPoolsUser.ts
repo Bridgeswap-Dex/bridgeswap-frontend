@@ -90,7 +90,7 @@ export const fetchUserPendingRewards = async (account) => {
   )
 
   // BRIS / BRIS pool
-  const pendingReward = await masterChefContract.methods.pendingFswap('0', account).call()
+  const pendingReward = await masterChefContract.methods.pendingBris('0', account).call()
 
   return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
 }

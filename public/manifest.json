@@ -1,10 +1,10 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm FSWAP with Pancake LP Tokens",
+  "short_name": "BridgeSwap",
+  "name": "BridgeSwap",
+  "description": "Farm BRIS with BridgeSwap LP Tokens",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.svg",
       "type": "image/x-icon",
       "sizes": "256x256"
     }

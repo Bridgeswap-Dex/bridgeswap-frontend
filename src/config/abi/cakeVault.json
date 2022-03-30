@@ -261,7 +261,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "calculateHarvestFswapRewards",
+		"name": "calculateHarvestBrisRewards",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -274,7 +274,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "calculateTotalPendingFswapRewards",
+		"name": "calculateTotalPendingBrisRewards",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -602,7 +602,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "fswapAtLastUserAction",
+				"name": "brisAtLastUserAction",
 				"type": "uint256"
 			},
 			{

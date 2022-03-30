@@ -186,7 +186,7 @@ const Nfts: Nft[] = [
   },
   {
     name: 'Churro',
-    description: "Don't let that dopey smile deceive you... Churro's a master FSWAP chef!",
+    description: "Don't let that dopey smile deceive you... Churro's a master BRIS chef!",
     images: {
       lg: 'churro-lg.png',
       md: 'churro-md.png',

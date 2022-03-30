@@ -10,8 +10,8 @@ export const fetchPublicVaultData = async () => {
     const [sharePrice, shares, estimatedCakeBountyReward, totalPendingCakeHarvest] = await makeBatchRequest([
       cakeVaultContract.methods.getPricePerFullShare().call,
       cakeVaultContract.methods.totalShares().call,
-      cakeVaultContract.methods.calculateHarvestFswapRewards().call,
-      cakeVaultContract.methods.calculateTotalPendingFswapRewards().call,
+      cakeVaultContract.methods.calculateHarvestBrisRewards().call,
+      cakeVaultContract.methods.calculateTotalPendingBrisRewards().call,
     ])
     const totalSharesAsBigNumber = new BigNumber(shares as string)
     const sharePriceAsBigNumber = new BigNumber(sharePrice as string)
