@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-scripts start",
+    "start": "yarn run transfer && react-scripts start",
+    "transfer": "cp -R ./vital-folders/@pancakeswap-libs ./node_modules && cp -R ./vital-folders/@pancakeswap ./node_modules",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -34,8 +35,8 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/abi": "^5.1.2",
-    "@pancakeswap-libs/sdk": "^1.0.1",
-    "@pancakeswap/uikit": "^0.37.0",
+    "@pancakeswap-libs/sdk": "1.0.1",
+    "@pancakeswap/uikit": "0.37.0",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",

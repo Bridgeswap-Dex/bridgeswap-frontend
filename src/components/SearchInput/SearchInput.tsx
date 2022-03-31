@@ -7,6 +7,17 @@ import { useTranslation } from 'contexts/Localization'
 const StyledInput = styled(Input)`
   border-radius: 16px;
   margin-left: auto;
+  ::placeholder {
+    color: #f7ad19;
+  }
+
+  :-ms-input-placeholder {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  ::-ms-input-placeholder {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `
 
 const InputWrapper = styled.div`
