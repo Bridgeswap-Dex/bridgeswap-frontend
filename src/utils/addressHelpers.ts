@@ -9,7 +9,7 @@ export const getAddress = (address: Address): string => {
 }
 
 export const getCakeAddress = () => {
-  return getAddress(tokens.fswap.address)
+  return getAddress(tokens.bris.address)
 }
 export const getMasterChefAddress = () => {
   return getAddress(addresses.masterChef)

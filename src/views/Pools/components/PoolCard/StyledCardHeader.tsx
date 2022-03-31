@@ -20,9 +20,8 @@ const StyledCardHeader: React.FC<{
   const poolImageSrc = isAutoVault
     ? `bris-brisvault.svg`
     : `${earningTokenSymbol}-${stakingTokenSymbol}.svg`.toLocaleLowerCase()
-  const isCakePool = earningTokenSymbol === 'FSWAP' && stakingTokenSymbol === 'FSWAP'
+  const isCakePool = earningTokenSymbol === 'BRIS' && stakingTokenSymbol === 'BRIS'
   const background = isStaking ? 'bubblegum' : 'cardHeader'
-
   const getHeadingPrefix = () => {
     if (isAutoVault) {
       // vault

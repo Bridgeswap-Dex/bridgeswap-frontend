@@ -37,7 +37,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
   const isManualCakePool = sousId === 0
 
   const earnings = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO
-  // These will be reassigned later if its Auto FSWAP vault
+  // These will be reassigned later if its Auto BRIS vault
   let earningTokenBalance = getBalanceNumber(earnings, earningToken.decimals)
   let earningTokenDollarBalance = getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals)
   let hasEarnings = account && earnings.gt(0)
@@ -46,7 +46,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataLoad
   const earningsDollarValue = formatNumber(earningTokenDollarBalance)
   const isBnbPool = poolCategory === PoolCategory.BINANCE
 
-  // Auto FSWAP vault calculations
+  // Auto BRIS vault calculations
   const {
     userData: { cakeAtLastUserAction, userShares, lastUserActionTime },
     pricePerFullShare,

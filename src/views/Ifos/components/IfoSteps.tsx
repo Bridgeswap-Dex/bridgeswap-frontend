@@ -76,16 +76,16 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Get CAKE-BNB LP Tokens')}
+              {t('Get BRIS-BNB LP Tokens')}
             </Heading>
             <Text color="textSubtle" small>
-              {t('Stake FSWAP and BNB in the liquidity pool to get LP tokens.')} <br />
+              {t('Stake BRIS and BNB in the liquidity pool to get LP tokens.')} <br />
               {t('You’ll spend them to buy IFO sale tokens.')}
             </Text>
             <Button
               as={Link}
               external
-              href={`${BASE_ADD_LIQUIDITY_URL}/BNB/0x078D1b73bbc94C83bA2371A164761A35a66b8612`}
+              href={`${BASE_ADD_LIQUIDITY_URL}/BNB/0xA22044dEeD66cc2a64BBA021543030D97B920C2c`}
               endIcon={<OpenNewIcon color="white" />}
               mt="16px"
             >

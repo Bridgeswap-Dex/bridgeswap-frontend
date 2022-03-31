@@ -2,6 +2,14 @@
 
 # dependencies
 /node_modules
+# !node_modules/
+
+# Allowing the node_modules packages below to be committed to git
+# node_modules/*
+# !node_modules/@pancakeswap/
+# !node_modules/@pancakeswap-libs/
+
+
 /.pnp
 .pnp.js
 
