@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-scripts start",
+    "start": "yarn run transfer && react-scripts start",
     "transfer": "cp -R ./vital-folders/@pancakeswap-libs ./node_modules && cp -R ./vital-folders/@pancakeswap ./node_modules",
     "build": "yarn run transfer && react-scripts build",
     "test": "react-scripts test",
