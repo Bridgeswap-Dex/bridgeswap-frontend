@@ -11,6 +11,7 @@ import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 import partners from 'config/constants/partners'
+import ComingSoon from './components/ComingSoon'
 
 const Hero = styled.div`
   align-items: center;
@@ -250,17 +251,18 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" scale="xl" mb="24px" color="blue">
-          {t('Bridging Defi on BNB chain')}
+          {t('Bridging Defi on Web 3.0')}
         </Heading>
         <Text color="white">{t('Launched initially on the BNB chain network, BridgeSwap will soon expand to the Polygon, Fantom, Avalanche, HECO and more.')}</Text>
         <Button variant="primary" style={{margin: "20px 0px"}}>Learn more</Button>
       
       </Hero>
       <div>
-        <AdsCards>
+        {/* <AdsCards>
           <Image src="/images/adverts/pools-coming-soon.svg" alt="Pools coming soon" width={400} height={200} responsive/>
           <Image src="/images/adverts/farms-coming-soon.svg" alt="Farms coming soon" width={400} height={200} responsive/>
-        </AdsCards>
+        </AdsCards> */}
+        <ComingSoon />
         <BridgeBoard>
           <Heading as="h3" mb="24px" color="primary">
             {t('A suite of Features Powering BridgeSwap')}
@@ -321,7 +323,7 @@ const Home: React.FC = () => {
                 {t('Referral Program')}
               </Heading>
               <Text small fontSize='12px' color="text">
-                {t('Share your referral link, invite your fiend and earn 5% of their yields FOREVER!')}
+                {t('Share your referral link, invite your fiend and earn 10% of their yields FOREVER!')}
               </Text>
               <Button variant="primary" scale="sm" style={{margin: "20px 0px"}}>Invite friends</Button>
             </Card>

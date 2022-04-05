@@ -108,7 +108,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     items: [
       {
         label: t('Team'),
-        href: 'https://docs.bridgeswap.app/bridgeswap/our-team',
+        href: 'https://bridgeswap-exchange-1.gitbook.io/bridgeswap/our-team',
       },
       // {
       //   label: t('Voting'),
