@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React from 'react'
 
-import { Heading, Text, BaseLayout, Button, Image, Card, Flex } from '@pancakeswap/uikit'
+import { Heading, Text, Button, Image, Card } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 
 

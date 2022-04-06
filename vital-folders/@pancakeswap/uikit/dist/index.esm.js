@@ -3625,7 +3625,7 @@ var socials = [
     {
         label: "Gitbook",
         icon: "GitbookIcon",
-        href: "#",
+        href: "https://bridgeswap-exchange-1.gitbook.io/bridgeswap/",
     },
     {
         label: "Telegram",

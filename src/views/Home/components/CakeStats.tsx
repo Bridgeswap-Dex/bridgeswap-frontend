@@ -26,6 +26,7 @@ const CakeStats = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(getCakeAddress()))
   const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  console.log("cakeSupply: ", cakeSupply)
 
   return (
     <StyledCakeStats>
@@ -43,7 +44,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text color="text" fontSize="14px">{t('New BRIS/block')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={20} />
+          <CardValue fontSize="14px" decimals={0} value={0.01} />
         </Row>
       </CardBody>
     </StyledCakeStats>

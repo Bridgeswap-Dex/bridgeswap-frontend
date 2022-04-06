@@ -341,12 +341,12 @@ const Farms: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+        <Heading as="h1" scale="xl" color="secondary" mb="24px">
           {t('Farms')}
         </Heading>
-        <Heading scale="lg" color="text">
-          {t('Stake Liquidity Pool (LP) tokens to earn.')}
-        </Heading>
+        <Text color="text">
+          {t('Stake your Liquidity to Earn')}
+        </Text>
       </PageHeader>
       <Page>
         <ControlContainer>
