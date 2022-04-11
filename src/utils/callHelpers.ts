@@ -13,6 +13,7 @@ import { getWeb3WithArchivedNodeProvider } from './web3'
 import { getBalanceAmount } from './formatBalance'
 import { BIG_TEN, BIG_ZERO } from './bigNumber'
 
+
 export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
     .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
@@ -29,8 +30,10 @@ export const stake = async (masterChefContract, pid, amount, account) => {
   //     })
   // }
 
+  // the third argument of deposit() i.e referrer is supposed to be the referrer account
+  const referrer = "0xFd0522277d30bB29fB69268987019F254B98519c"
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
+    .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(), referrer)
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
       return tx.transactionHash

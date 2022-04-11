@@ -10,7 +10,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BRIS',
     lpAddresses: {
       97: '',
-      56: '0xA22044dEeD66cc2a64BBA021543030D97B920C2c',
+      56: '0x88C945170267BA9b7959E3f07706846890F79924',
     },
     token: tokens.soup,
     quoteToken: tokens.wbnb,

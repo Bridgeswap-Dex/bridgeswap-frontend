@@ -6,7 +6,7 @@ const tokens = {
   bris: {
     symbol: 'BRIS',
     address: {
-      56: '0xA22044dEeD66cc2a64BBA021543030D97B920C2c',
+      56: '0x88C945170267BA9b7959E3f07706846890F79924',
       97: '',
     },
     decimals: 18,
@@ -447,7 +447,7 @@ const tokens = {
   wbnb: {
     symbol: 'wBNB',
     address: {
-      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
       97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
     },
     decimals: 18,
