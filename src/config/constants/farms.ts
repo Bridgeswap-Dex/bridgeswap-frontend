@@ -15,6 +15,17 @@ const farms: FarmConfig[] = [
     token: tokens.soup,
     quoteToken: tokens.wbnb,
   },
+  //
+  {
+    pid: 1,
+    lpSymbol: 'BRIS-USDT LP',
+    lpAddresses: {
+      97: '',
+      56: '0xDc0851F51A476d83BCEA9eF0cba3FeA9e31bfe82',
+    },
+    token: tokens.bris,
+    quoteToken: tokens.wbnb,
+  },
   {
     pid: 2,
     lpSymbol: 'BRIS-BNB LP',
