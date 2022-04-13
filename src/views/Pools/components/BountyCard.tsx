@@ -21,6 +21,7 @@ import Balance from 'components/Balance'
 import BountyModal from './BountyModal'
 
 const StyledCard = styled(Card)`
+  border: 2px solid ${({ theme }) => theme.colors.textSubtle};
   width: 100%;
   flex: 1;
   ${({ theme }) => theme.mediaQueries.sm} {

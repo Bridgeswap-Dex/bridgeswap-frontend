@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid } from '@pancakeswap/uikit'
+import { Link as ReactLink } from 'react-router-dom'
+import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid, Link } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -244,8 +245,27 @@ const Partner = styled.div`
   }
 `
 
+const LearnMoreBtn = styled.a`
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.bright};
+  padding: 12px 10px;
+  border-radius: 9px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+`
+
 const Home: React.FC = () => {
   const { t } = useTranslation()
+
+  // Open exchange
+  const openDex = () => {
+    window.open('https://dex.bridgeswap.app/#/swap','_blank')
+  }
+  // Open add liquidity
+  const openAddLiquidity = () => {
+    // 
+    window.open('https://dex.bridgeswap.app/#/pool','_blank')
+  }
 
   return (
     <Page>
@@ -253,8 +273,9 @@ const Home: React.FC = () => {
         <Heading as="h1" scale="xl" mb="24px" color="blue">
           {t('Bridging Defi on Web 3.0')}
         </Heading>
-        <Text color="white">{t('Launched initially on the BNB chain network, BridgeSwap will soon expand to the Polygon, Fantom, Avalanche, HECO and more.')}</Text>
-        <Button variant="primary" style={{margin: "20px 0px"}}>Learn more</Button>
+        <Text color="white">{t('Bridgeswap is bridging Defi on Web 3.0 from traditional finance in a decentralized manner to create a fair global economy that is sustainable, accessible, and community-driven DAO.')}</Text>
+        {/* <Button variant="primary" style={{margin: "20px 0px"}}>Learn more</Button> */}
+        <LearnMoreBtn href='https://bridgeswap-exchange-1.gitbook.io/bridgeswap/' target='_blank' rel='noreferrer noopener'>Learn more</LearnMoreBtn>
       
       </Hero>
       <div>
@@ -275,7 +296,9 @@ const Home: React.FC = () => {
               <Text small fontSize='12px' color="text">
                 {t('Instantly swap crypto tokens: NO registration or account needed.')}
               </Text>
-              <FeatBtn variant="secondary" scale="sm">Enter exchange</FeatBtn>
+              <FeatBtn variant="secondary" scale="sm">
+                <Link external href='https://dex.bridgeswap.app/#/swap' color='text'>Enter exchange</Link>
+              </FeatBtn>
             </Card>
 
             <Card p="15px">
@@ -285,7 +308,9 @@ const Home: React.FC = () => {
               <Text fontSize='12px' color="text">
                 {t('Provide liqudity to earn yield.')}
               </Text>
-              <FeatBtn variant="secondary" scale="sm">Add liquidity</FeatBtn>
+              <FeatBtn variant="secondary" scale="sm">
+                <Link href='https://dex.bridgeswap.app/#/pool' color='text'>Add liquidity</Link>
+              </FeatBtn>
             </Card>
 
             <Card p="15px">
@@ -295,7 +320,9 @@ const Home: React.FC = () => {
               <Text small fontSize='12px' color="text">
                 {t('Stake tokens, earn passive inome with crypto.')}
               </Text>
-              <FeatBtn variant="secondary" scale="sm">Enter pools</FeatBtn>
+              <FeatBtn variant="secondary" scale="sm">
+                <ReactLink to='/pools' color='text'>Enter pools</ReactLink>
+              </FeatBtn>
             </Card>
 
             <Card p="15px">
@@ -305,7 +332,9 @@ const Home: React.FC = () => {
               <Text small fontSize='12px' color="text">
                 {t('Swap LPs to receive discounted BRIS tokens.')}
               </Text>
-              <FeatBtn variant="secondary" scale="sm">Swap now</FeatBtn>
+              <FeatBtn variant="secondary" scale="sm">
+                <ReactLink to='/defi' color='text'>Swap now</ReactLink>
+              </FeatBtn>
             </Card>
 
             <Card p="15px">
@@ -315,7 +344,9 @@ const Home: React.FC = () => {
               <Text small fontSize='12px' color="text">
                 {t('Provably fair, on-chain game. WIN BIG!!!')}
               </Text>
-              <FeatBtn variant="secondary" scale="sm">Play now</FeatBtn>
+              <FeatBtn variant="secondary" scale="sm">
+                <ReactLink to='/lottery'>Play now</ReactLink>
+              </FeatBtn>
             </Card>
 
             <Card p="15px" style={{background: "linear-gradient(155.08deg, #FA00FF -35.34%, #17D2FB 134.08%)"}}>
