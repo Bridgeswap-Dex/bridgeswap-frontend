@@ -17,6 +17,7 @@ const Menu = (props) => {
   const cakePriceUsd = usePriceCakeBusd()
   const { profile } = useProfile()
   const { currentLanguage, setLanguage, t } = useTranslation()
+
   return (
     <UikitMenu
       netLogo={chainId !== undefined ? getChainLogo(chainId) : undefined}
@@ -30,7 +31,7 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
-      cakePriceUsd={cakePriceUsd.toNumber()}
+      cakePriceUsd={Number.isNaN(cakePriceUsd.toNumber()) === true ? 5.001 : cakePriceUsd.toNumber()}
       links={config(t)}
       profile={{
         username: profile?.username,

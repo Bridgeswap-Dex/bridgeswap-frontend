@@ -2832,7 +2832,7 @@ var baseColors = {
 };
 var additionalColors = {
     binance: "#0773C9",
-    overlay: "#c73316",
+    overlay: "#452a7a",
 };
 var lightColors = __assign(__assign(__assign({}, baseColors), additionalColors), { background: "#09092b", backgroundDisabled: "#9595e9", backgroundAlt: "#080844", cardBorder: "#facdc3", contrast: "#311b17", dropdown: "#F6F6F6", dropdownDeep: "#EEEEEE", invertedContrast: "#FFFFFF", bright: "#ffffff", blue: "#17D2FB", input: "#ffffff", inputSecondary: "#d7caec", tertiary: "#EFF4F5", text: "#ffffff", textDisabled: "#dad5d5", textSubtle: "#8c8c8c", disabled: "#E9EAEB", menuHover: "#F7AD19", gradients: {
         bluePurple: "linear-gradient(90.82deg, #FA00FF -73.84%, #17D2FB 141.1%)",
