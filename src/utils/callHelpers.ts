@@ -99,14 +99,14 @@ export const sousEmergencyUnstake = async (sousChefContract, account) => {
 }
 
 export const harvest = async (masterChefContract, pid, account) => {
-  if (pid === 0) {
-    return masterChefContract.methods
-      .leaveStaking('0')
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
+  // if (pid === 0) {
+  //   return masterChefContract.methods
+  //     .leaveStaking('0')
+  //     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+  //     .on('transactionHash', (tx) => {
+  //       return tx.transactionHash
+  //     })
+  // }
 
   return masterChefContract.methods
     .deposit(pid, '0')
@@ -135,7 +135,7 @@ export const soushHarvestBnb = async (sousChefContract, account) => {
 }
 
 const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
-const cakeBnbPid = 2
+const cakeBnbPid = 8
 const cakeBnbFarm = farms.find((farm) => farm.pid === cakeBnbPid)
 
 const CAKE_TOKEN = new Token(chainId, getCakeAddress(), 18)
