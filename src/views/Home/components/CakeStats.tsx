@@ -43,7 +43,8 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text color="text" fontSize="14px">{t('New BRIS/block')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={0.1} />
+          {/* <CardValue fontSize="14px" decimals={100} value={0.100} /> */}
+          <div>0.01</div>
         </Row>
       </CardBody>
     </StyledCakeStats>
