@@ -47,6 +47,11 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     icon: 'TicketIcon',
     href: '/lottery',
   },
+  {
+    label: t('Referral Program'),
+    icon: 'ReferralIcon',
+    href: '/referral',
+  },
   // {
   //   label: t('Collectibles'),
   //   icon: 'NftIcon',
