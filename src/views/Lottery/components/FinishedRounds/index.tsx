@@ -1,18 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
+import { useAccountTickets, useCurrentLotteryId, useLotteryInfo } from 'hooks/useBuyLottery'
 import HistoryButtons from './HistoryButtons'
 
 
 // Local states. These values can be updated
-const roundNumValue = 328
-const drawDate = "Feb 21, 2022, 1:31 PM"
-const lotteryPrize = "20,000"
-const brisAmt = 99
-const userNumTicket = 0;
-const totalTickets = 658
-const winningNumbers = [1, 2, 3, 4, 5, 6]
+// const roundNumValue = 328
+// const drawDate = "Feb 21, 2022, 1:31 PM"
+// const lotteryPrize = "20,000"
+// const brisAmt = 99
+// const userNumTicket = 0;
+// const totalTickets = 658
+// const winningNumbers = [1, 2, 3, 4, 5, 6]
 
 const RoundsContainer = styled.div`
     border-radius: 20px;
@@ -133,7 +134,7 @@ const WinningNumbers = styled(Grid)`
     justify-content: center;
 }
 `
-const Number = styled.div`
+const DrawNumber = styled.div`
     background: ${({ theme }) => theme.colors.textSubtle};
     border-radius: 50%;
     padding: 20px 0px;
@@ -147,6 +148,38 @@ const Number = styled.div`
 
 const FinishedRounds = () => {
     const { t } = useTranslation()
+    const [lotteryinfo, setLotteryinfo] = useState({})
+    const [accountTickets, setAccountTickets] = useState([])
+
+    const lotteryid = useCurrentLotteryId()
+    const { onViewLottery } = useLotteryInfo()
+    const { onAccountTickets } = useAccountTickets()
+
+
+    useEffect(() => {
+        (async () => {
+            const lottery = await onViewLottery((Number(lotteryid)-1).toString())
+            setLotteryinfo(lottery)
+        })()
+    }, [lotteryid, onViewLottery])
+
+    useEffect(() => {
+        (async () => {
+            const ticketsArr = await onAccountTickets((Number(lotteryid)-1).toString())
+            setAccountTickets(ticketsArr)
+        })()
+    }, [lotteryid, onAccountTickets])
+
+    let finalNumber
+    if(lotteryinfo[12] === undefined || lotteryinfo[12] === '0') {
+        finalNumber = 'XXXXXX'
+    } else {
+        finalNumber = lotteryinfo[12]
+    }
+
+    const date = `${new Date(Number(lotteryinfo[2])).toDateString()} ${new Date(Number(lotteryinfo[2])).toLocaleTimeString()}`
+    const usingSplit = finalNumber.split('')
+
 
     return (
         <RoundsContainer>
@@ -159,8 +192,8 @@ const FinishedRounds = () => {
             <RoundDate>
                 <Text mb="22px" fontSize='12px' color='text'>
                     {t(`Round `)}
-                    <RoundNum>{`${roundNumValue}`}</RoundNum>
-                    {t(` Drawn ${drawDate}`)}
+                    <RoundNum>{`${Number(lotteryid)-1}`}</RoundNum>
+                    {t(` Drawn ${date}`)}
                 </Text>
             </RoundDate>
             <PrizeWinningContainer>
@@ -170,15 +203,15 @@ const FinishedRounds = () => {
                             {t(`Prize Pot`)}
                         </PotHeading>
                         <TotalTickets>
-                            {t(`Total tickets this round: ${totalTickets}`)}
+                            {t(`Total tickets this round: ${Number(lotteryinfo[11])}`)}
                         </TotalTickets>
                     </PotTitle>
                     <Prize>
                         <Heading>
-                            {t(`$${lotteryPrize}`)}
+                            {t(`$${Number(lotteryinfo[11])}`)}
                         </Heading>
                         <Text fontSize='11px' mb="22px" color='textSubtle'>
-                            {t(`~${brisAmt} BRIS`)}
+                            {t(`~${Number(lotteryinfo[11])} BRIS`)}
                         </Text>
                     </Prize>
                     <Text color='text'>
@@ -186,7 +219,7 @@ const FinishedRounds = () => {
                     </Text>
                     <Text mb="22px" fontSize='12px' color='text'>
                         {t(`You have `)}
-                        <UserTicket>{`{${userNumTicket}}`}</UserTicket>
+                        <UserTicket>{`{${accountTickets.length}}`}</UserTicket>
                         {t(` tickets for this round.`)}
                     </Text>
                 </PrizePot>
@@ -197,7 +230,7 @@ const FinishedRounds = () => {
                     <Text m='10px 0px' fontSize='20px' color='text'>{t('Winning Number')}</Text>
                     <WinningNumbers>
                         {
-                            winningNumbers.map(number => <Number>{number}</Number>)
+                            usingSplit.map((num: number) => <DrawNumber>{num}</DrawNumber>)
                         }
                     </WinningNumbers>
                 </WinningNumber>

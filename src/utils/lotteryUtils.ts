@@ -75,6 +75,34 @@ export const getTickets = async (lotteryContract, ticketsContract, account, cust
   return tickets
 }
 
+export const getLotteryInfo = async (lotteryContract, lotteryid) => {
+  const lotteryinfo = await lotteryContract.methods.viewLottery(lotteryid).call()
+  return lotteryinfo
+}
+
+export const buyTickets = async (lotteryContract, lotteryid, numbersList, account) => {
+  try {
+    return lotteryContract.methods
+      .buyTickets(lotteryid, numbersList)
+      .send({ from: account })
+      .on('transactionHash', (tx) => {
+        return tx.transactionHash
+      })
+  } catch (err) {
+    return console.error(err)
+  }
+}
+
+export const getAccountTickets = async (lotteryContract, account, lotteryid) => {
+  const userTickets = await lotteryContract.methods.getUserTickets(account, lotteryid).call()
+  return userTickets
+}
+
+export const getLotteryId = async (lotteryContract) => {
+  const currentLotteryid = await lotteryContract.methods.currentLotteryId().call()
+  return currentLotteryid
+}
+
 export const getTicketsAmount = async (ticketsContract, account) => {
   return ticketsContract.methods.balanceOf(account).call()
 }

@@ -14,6 +14,7 @@ import {
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
+  getNewLotteryAddress,
   getLotteryV2Address,
   getMasterChefAddress,
   getPointCenterIfoAddress,
@@ -23,6 +24,7 @@ import {
   getCakeVaultAddress,
   getPredictionsAddress,
   getChainlinkOracleAddress,
+  getReferralAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -40,6 +42,8 @@ import pointCenterIfo from 'config/abi/pointCenterIfo.json'
 import lotteryAbi from 'config/abi/lottery.json'
 import lotteryTicketAbi from 'config/abi/lotteryNft.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
+import newlotteryAbi from 'config/abi/newlottery.json'
+import referralAbi from 'config/abi/referral.json'
 import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
@@ -100,6 +104,10 @@ export const getPointCenterIfoContract = (web3?: Web3) => {
 export const getCakeContract = (web3?: Web3) => {
   return getContract(cakeAbi, getCakeAddress(), web3)
 }
+// Cake and BRIS are the same
+export const getBRISContract = (web3?: Web3) => {
+  return getContract(cakeAbi, getCakeAddress(), web3)
+}
 export const getProfileContract = (web3?: Web3) => {
   return getContract(profileABI, getPancakeProfileAddress(), web3)
 }
@@ -112,6 +120,9 @@ export const getBunnyFactoryContract = (web3?: Web3) => {
 export const getBunnySpecialContract = (web3?: Web3) => {
   return getContract(bunnySpecialAbi, getBunnySpecialAddress(), web3)
 }
+export const getNewLotteryContract = (web3?: Web3) => {
+  return getContract(newlotteryAbi, getNewLotteryAddress(), web3)
+}
 export const getLotteryContract = (web3?: Web3) => {
   return getContract(lotteryAbi, getLotteryAddress(), web3)
 }
@@ -120,6 +131,9 @@ export const getLotteryTicketContract = (web3?: Web3) => {
 }
 export const getLotteryV2Contract = (web3?: Web3) => {
   return getContract(lotteryV2Abi, getLotteryV2Address(), web3)
+}
+export const getReferralContract = (web3?: Web3) => {
+  return getContract(referralAbi, getReferralAddress(), web3)
 }
 export const getMasterchefContract = (web3?: Web3) => {
   return getContract(masterChef, getMasterChefAddress(), web3)
