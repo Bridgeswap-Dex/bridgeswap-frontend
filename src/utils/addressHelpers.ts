@@ -29,6 +29,12 @@ export const getLotteryTicketAddress = () => {
 export const getLotteryV2Address = () => {
   return getAddress(addresses.lotteryV2)
 }
+export const getReferralAddress = () => {
+  return getAddress(addresses.referral)
+}
+export const getNewLotteryAddress = () => {
+  return getAddress(addresses.newlottery)
+}
 export const getPancakeProfileAddress = () => {
   return getAddress(addresses.pancakeProfile)
 }

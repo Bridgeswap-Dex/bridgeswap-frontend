@@ -3,6 +3,7 @@ import useWeb3 from 'hooks/useWeb3'
 import {
   getBep20Contract,
   getCakeContract,
+  getBRISContract,
   getBunnyFactoryContract,
   getBunnySpecialContract,
   getPancakeRabbitContract,
@@ -11,6 +12,7 @@ import {
   getIfoV2Contract,
   getLotteryContract,
   getLotteryTicketContract,
+  getReferralContract,
   getMasterchefContract,
   getPointCenterIfoContract,
   getSouschefContract,
@@ -23,6 +25,7 @@ import {
   getChainlinkOracleContract,
   getSouschefV2Contract,
   getLotteryV2Contract,
+  getNewLotteryContract
 } from 'utils/contractHelpers'
 
 /**
@@ -56,6 +59,11 @@ export const useCake = () => {
   const web3 = useWeb3()
   return useMemo(() => getCakeContract(web3), [web3])
 }
+// CAKE and BRIS are the same
+export const useBRIS = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getCakeContract(web3), [web3])
+}
 
 export const useBunnyFactory = () => {
   const web3 = useWeb3()
@@ -77,6 +85,12 @@ export const useLottery = () => {
   return useMemo(() => getLotteryContract(web3), [web3])
 }
 
+export const useNewLottery = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getNewLotteryContract(web3), [web3])
+}
+
+
 export const useLotteryTicket = () => {
   const web3 = useWeb3()
   return useMemo(() => getLotteryTicketContract(web3), [web3])
@@ -86,6 +100,12 @@ export const useLotteryV2Contract = () => {
   const web3 = useWeb3()
   return useMemo(() => getLotteryV2Contract(web3), [web3])
 }
+
+export const useReferralContract = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getReferralContract(web3), [web3])
+}
+
 
 export const useMasterchef = () => {
   const web3 = useWeb3()

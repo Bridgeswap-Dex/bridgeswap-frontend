@@ -5,7 +5,7 @@ import { Button, Modal } from '@pancakeswap/uikit'
 import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import TicketInput from 'components/TicketInput'
 import ModalActions from 'components/ModalActions'
-import { useMultiBuyLottery, useMaxNumber } from 'hooks/useBuyLottery'
+import { useMultiBuyLottery, useMaxNumber, useCurrentLotteryId, useBuyTicketsLottery } from 'hooks/useBuyLottery'
 import { useTranslation } from 'contexts/Localization'
 import { LOTTERY_MAX_NUMBER_OF_TICKETS, LOTTERY_TICKET_PRICE } from 'config'
 
@@ -33,21 +33,37 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
     }
   }
 
-  const { onMultiBuy } = useMultiBuyLottery()
-  const maxNumber = useMaxNumber()
+  // const { onMultiBuy } = useMultiBuyLottery()
+  // const maxNumber = useMaxNumber()
+  const { onBuyTickets } = useBuyTicketsLottery()
+  const lotteryid = useCurrentLotteryId()
+
   const handleBuy = useCallback(async () => {
     try {
       setRequestedBuy(true)
       const length = parseInt(val)
       // @ts-ignore
       // eslint-disable-next-line prefer-spread
-      const numbers = Array.apply(null, { length }).map(() => [
-        Math.floor(Math.random() * maxNumber) + 1,
-        Math.floor(Math.random() * maxNumber) + 1,
-        Math.floor(Math.random() * maxNumber) + 1,
-        Math.floor(Math.random() * maxNumber) + 1,
-      ])
-      const txHash = await onMultiBuy(LOTTERY_TICKET_PRICE.toString(), numbers)
+      // const numbers = Array.apply(null, { length }).map(() => [
+      //   Math.floor(Math.random() * maxNumber) + 1,
+      //   Math.floor(Math.random() * maxNumber) + 1,
+      //   Math.floor(Math.random() * maxNumber) + 1,
+      //   Math.floor(Math.random() * maxNumber) + 1,
+      // ])
+      
+      // @ts-ignore
+      // eslint-disable-next-line prefer-spread
+      const numbers = Array.apply(null, { length }).map(() =>
+        Math.floor(Math.random() * 10).toString() + 
+        Math.floor(Math.random() * 10).toString() + 
+        Math.floor(Math.random() * 10).toString() + 
+        Math.floor(Math.random() * 10).toString() + 
+        Math.floor(Math.random() * 10).toString() + 
+        Math.floor(Math.random() * 10).toString()
+      )
+
+      const txHash = await onBuyTickets(lotteryid.toString(), numbers)
+      // const txHash = await onMultiBuy(LOTTERY_TICKET_PRICE.toString(), numbers)
       // user rejected tx or didn't go thru
       if (txHash) {
         setRequestedBuy(false)
@@ -55,7 +71,8 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
     } catch (e) {
       console.error(e)
     }
-  }, [onMultiBuy, setRequestedBuy, maxNumber, val])
+  }, [onBuyTickets, setRequestedBuy, val, lotteryid])
+  // [onMultiBuy, setRequestedBuy, maxNumber, val]
 
   const handleSelectMax = useCallback(() => {
     if (Number(maxTickets) > LOTTERY_MAX_NUMBER_OF_TICKETS) {

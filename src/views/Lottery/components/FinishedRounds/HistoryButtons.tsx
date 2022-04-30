@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
@@ -11,16 +11,17 @@ const StyledNav = styled.div`
 
 function HistoryButtons({ activeIndex = 0 }) {
     const { t } = useTranslation()
+    const { url, isExact } = useRouteMatch()
 
 
     return (
 
         <StyledNav>
-            <ButtonMenu activeIndex={activeIndex} scale="sm" variant="primary">
-            <ButtonMenuItem id="allhistory-nav-link" to="/" as={Link}>
+            <ButtonMenu activeIndex={isExact ? activeIndex : 1} scale="sm" variant="primary">
+            <ButtonMenuItem id="allhistory-nav-link" to={`${url}`} as={Link}>
                 {t('All History')}
             </ButtonMenuItem>
-            <ButtonMenuItem id="myhistory-nav-link" to="/" as={Link}>
+            <ButtonMenuItem id="myhistory-nav-link" to={`${url}/history`} as={Link}>
                 {t('My History')}
             </ButtonMenuItem>
             
