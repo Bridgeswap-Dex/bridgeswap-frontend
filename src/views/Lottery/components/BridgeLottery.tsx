@@ -45,7 +45,7 @@ const BridgeLottery = () => {
           <Text fontSize="12px" mb="15px" color="text">
             {t("The BridgeSwap Lottery")}
           </Text><Text fontWeight="700" mb="15px" fontSize="42px">
-            {t("Win $300000")}
+            {t("Win $0")}
           </Text>
           <Text fontSize="12px" mb="22px" color="text">
             {t("in prizes")}

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link as ReactLink } from 'react-router-dom'
-import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid, Link } from '@pancakeswap/uikit'
+import BigNumber from 'bignumber.js'
+import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid, Link, useModal, Skeleton } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -12,6 +13,8 @@ import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 import partners from 'config/constants/partners'
+import useBrisBalance from 'hooks/useGetBrisBalance'
+import BuyTicketModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import ComingSoon from './components/ComingSoon'
 
 const Hero = styled.div`
@@ -228,7 +231,7 @@ const Partners = styled(Grid)`
 `
 const Partner = styled.div`
   background: #18186B;
-  height: 20px;
+  height: auto;
   width: 75px;
   border-radius: 5px;
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -254,18 +257,18 @@ const LearnMoreBtn = styled.a`
   margin-bottom: 12px;
 `
 
+const LoadingTopPerformers = styled.div`
+  width: 90%;
+  height: 80px;
+`
+
+
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
-  // Open exchange
-  const openDex = () => {
-    window.open('https://dex.bridgeswap.app/#/swap','_blank')
-  }
-  // Open add liquidity
-  const openAddLiquidity = () => {
-    // 
-    window.open('https://dex.bridgeswap.app/#/pool','_blank')
-  }
+  const maxBalance = useBrisBalance()
+  const [onPresentBuyTicketsModal] = useModal(<BuyTicketModal max={new BigNumber(maxBalance)}/>)
+  
 
   return (
     <Page>
@@ -356,7 +359,7 @@ const Home: React.FC = () => {
               <Text small fontSize='12px' color="text">
                 {t('Share your referral link, invite your fiend and earn 10% of their yields FOREVER!')}
               </Text>
-              <Button variant="primary" scale="sm" style={{margin: "20px 0px"}}>Invite friends</Button>
+              <Button as={ReactLink} to="/referral" variant="primary" scale="sm" style={{margin: "20px 0px"}}>Invite friends</Button>
             </Card>
             
           </FeatsGrid>
@@ -366,7 +369,10 @@ const Home: React.FC = () => {
           <Heading as="h5" mb="10px" color="text">
             {t('Top performers')}
           </Heading>
-          <FeatsGrid>
+          <LoadingTopPerformers>
+            <Skeleton variant='rect' />
+          </LoadingTopPerformers>
+          {/* <FeatsGrid>
             <Card style={{width: "100%", border: "20x solid white"}}>
               <Heading as="h5" pt="12px" mb="10px" color="text">
                 {t('Pools')}
@@ -414,7 +420,7 @@ const Home: React.FC = () => {
               </PerformersFlex>
             
             </Card> 
-          </FeatsGrid>
+          </FeatsGrid> */}
           {/* <FarmStakingCard /> */}
           {/* <LotteryCard /> */}
         </BridgeBoard>
@@ -433,12 +439,12 @@ const Home: React.FC = () => {
             <Text fontSize="12px" mb="15px" color="text">
               {t("The BridgeSwap Lottery")}
             </Text><Text fontWeight="700" mb="15px" fontSize="42px">
-              {t("Win $300000")}
+              {t("Win $0")}
             </Text>
             <Text fontSize="12px" mb="22px" color="text">
               {t("in prizes")}
             </Text>
-            <Button variant="primary" scale="sm" style={{margin: "10px auto", width: "200px"}}>Buy tickets</Button>
+            <Button variant="primary" scale="sm" style={{margin: "10px auto", width: "200px"}} onClick={onPresentBuyTicketsModal}>Buy tickets</Button>
           </BridgeLottery>
           <StatsFigures>
             <CakeStats/>
@@ -452,7 +458,7 @@ const Home: React.FC = () => {
           </Heading>
               <Partners>
                 {
-                  partners.map((partner) => <Partner>{partner.name}</Partner>)
+                  partners.map((partner) => <Skeleton />)
                 }
               </Partners>
         </BridgeBoard>

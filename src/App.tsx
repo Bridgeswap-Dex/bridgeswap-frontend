@@ -10,13 +10,14 @@ import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 import EasterEgg from './components/EasterEgg'
-import Pools from './views/Pools'
 import history from './routerHistory'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
+const Pools = lazy(() => import('./views/Pools'))
+const DefiZap = lazy(() => import('./views/DefiZap'))
 const Lottery = lazy(() => import('./views/Lottery'))
 const Referral = lazy(() => import('./views/Referral'))
 const Ifos = lazy(() => import('./views/Ifos'))
@@ -55,6 +56,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools">
               <Pools />
+            </Route>
+            <Route path="/defi">
+              <DefiZap />
             </Route>
             <Route path="/lottery">
               <Lottery />

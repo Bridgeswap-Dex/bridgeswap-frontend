@@ -159,6 +159,7 @@ const FinishedRounds = () => {
     useEffect(() => {
         (async () => {
             const lottery = await onViewLottery((Number(lotteryid)-1).toString())
+            console.log("lottery info: ", lottery)
             setLotteryinfo(lottery)
         })()
     }, [lotteryid, onViewLottery])
