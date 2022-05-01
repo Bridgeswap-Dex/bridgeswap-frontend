@@ -22,7 +22,7 @@ const Menu = (props) => {
     <UikitMenu
       netLogo={chainId !== undefined ? getChainLogo(chainId) : undefined}
       netName={chainId !== undefined ? getChainName(chainId) : undefined}
-      platform="Farms & Pools"
+      platform="Home"
       account={account}
       login={login}
       logout={logout}
