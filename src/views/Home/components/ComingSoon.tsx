@@ -28,6 +28,11 @@ const SlideImg = styled.img`
 
 const ComingSoon = () => {
 
+    const carouseImg = {
+        width: '400px',
+        margin: '0 auto'
+    }
+
     return (
         <Carousel 
         autoPlay
@@ -43,6 +48,12 @@ const ComingSoon = () => {
             </div>
             <div>
                 <SlideImg src="/images/adverts/farms-coming-soon-big.svg" alt='Farms coming soon'/>
+            </div>
+            <div style={carouseImg}>
+                <SlideImg src="/images/adverts/lottery-coming-soon-big.jpg" alt='Lottery coming soon'/>
+            </div>
+            <div style={carouseImg}>
+                <SlideImg src="/images/adverts/ernx-ido-coming-soon-big.jpg" alt='IDO coming soon'/>
             </div>
             
         </Carousel>

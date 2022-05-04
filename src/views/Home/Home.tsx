@@ -282,10 +282,7 @@ const Home: React.FC = () => {
       
       </Hero>
       <div>
-        {/* <AdsCards>
-          <Image src="/images/adverts/pools-coming-soon.svg" alt="Pools coming soon" width={400} height={200} responsive/>
-          <Image src="/images/adverts/farms-coming-soon.svg" alt="Farms coming soon" width={400} height={200} responsive/>
-        </AdsCards> */}
+        
         <ComingSoon />
         <BridgeBoard>
           <Heading as="h3" mb="24px" color="primary">
