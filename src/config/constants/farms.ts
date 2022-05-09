@@ -15,17 +15,16 @@ const farms: FarmConfig[] = [
     token: tokens.soup,
     quoteToken: tokens.wbnb,
   },
-  //
-  {
-    pid: 7,
-    lpSymbol: 'BRIS-USDT LP',
-    lpAddresses: {
-      97: '',
-      56: '0x1b92FED083cFcd7158f37E4d95055Be0AEB51c59',
-    },
-    token: tokens.bris,
-    quoteToken: tokens.wbnb,
-  },
+  // {
+  //   pid: 7,
+  //   lpSymbol: 'BRIS-USDT LP',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0x1b92FED083cFcd7158f37E4d95055Be0AEB51c59',
+  //   },
+  //   token: tokens.bris,
+  //   quoteToken: tokens.wbnb,
+  // },
   {
     pid: 8,
     lpSymbol: 'BRIS-BNB LP',
@@ -46,6 +45,17 @@ const farms: FarmConfig[] = [
     token: tokens.busd,
     quoteToken: tokens.wbnb,
   },
+  {
+    pid: 10,
+    lpSymbol: 'BRIS-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x39CaadC85DB5559d1116DDd0620024C90131a991',
+    },
+    token: tokens.bris,
+    quoteToken: tokens.busd,
+  },
+
 //   /**
 //    * V3 by order of release (some may be out of PID order due to multiplier boost)
 //    */
