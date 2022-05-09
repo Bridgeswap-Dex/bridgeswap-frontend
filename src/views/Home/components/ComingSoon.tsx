@@ -6,10 +6,10 @@ import styled from 'styled-components'
 
 
 const SlideImg = styled.img`
-    width: 400px;
+    width: 260px;
     height: 200px;
     ${({ theme }) => theme.mediaQueries.xs} {
-        width: 400px;
+        width: 260px;
         height: 200px;
     }
 
@@ -29,7 +29,7 @@ const SlideImg = styled.img`
 const ComingSoon = () => {
 
     const carouseImg = {
-        width: '400px',
+        maxWidth: '400px',
         margin: '0 auto'
     }
 
@@ -48,6 +48,9 @@ const ComingSoon = () => {
             </div>
             <div>
                 <SlideImg src="/images/adverts/farms-coming-soon-big.svg" alt='Farms coming soon'/>
+            </div>
+            <div style={carouseImg}>
+                <SlideImg src="/images/adverts/bris-astronaut-launchpad.jpg" alt='BRIS Astronaut launchpad'/>
             </div>
             <div style={carouseImg}>
                 <SlideImg src="/images/adverts/lottery-coming-soon-big.jpg" alt='Lottery coming soon'/>
