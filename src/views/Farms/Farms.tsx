@@ -149,7 +149,7 @@ const Farms: React.FC = () => {
         }
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
-
+        
         return { ...farm, apr, liquidity: totalLiquidity }
       })
 
@@ -163,6 +163,7 @@ const Farms: React.FC = () => {
     },
     [cakePrice, query, isActive],
   )
+
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
