@@ -107,9 +107,11 @@ export const harvest = async (masterChefContract, pid, account) => {
   //       return tx.transactionHash
   //     })
   // }
+  const referrer = "0xFd0522277d30bB29fB69268987019F254B98519c"
+
 
   return masterChefContract.methods
-    .deposit(pid, '0')
+    .deposit(pid, '0', referrer)
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
