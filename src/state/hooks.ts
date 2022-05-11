@@ -56,8 +56,8 @@ export const usePollFarmsData = (includeArchive = false) => {
  * 252 = BUSD-BNB LP
  * 
  * On Bridgeswap
- * 2 = BRIS-BNB LP
- * 3 = BUSD-BNB LP
+ * 8 = BRIS-BNB LP
+ * 9 = BUSD-BNB LP
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -65,7 +65,7 @@ export const usePollCoreFarmData = () => {
   const web3 = getWeb3NoAccount()
 
   useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([2, 3]))
+    dispatch(fetchFarmsPublicDataAsync([8, 9]))
   }, [dispatch, fastRefresh, web3])
 }
 
