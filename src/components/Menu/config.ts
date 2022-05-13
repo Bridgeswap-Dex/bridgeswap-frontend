@@ -1,4 +1,4 @@
-import { MenuEntry } from '@pancakeswap/uikit'
+import { MenuEntry, menuStatus } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 
 const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
@@ -51,6 +51,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     label: t('Referral Program'),
     icon: 'ReferralIcon',
     href: '/referral',
+    status: menuStatus.LIVE
   },
   // {
   //   label: t('Collectibles'),

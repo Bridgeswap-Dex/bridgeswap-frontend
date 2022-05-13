@@ -36,16 +36,6 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.wbnb,
   },
   {
-    pid: 9,
-    lpSymbol: 'BUSD-BNB LP',
-    lpAddresses: {
-      97: '',
-      56: '0x5E7239dFc60D54a4c469bfb3a1804C27a4A214D5',
-    },
-    token: tokens.busd,
-    quoteToken: tokens.wbnb,
-  },
-  {
     pid: 10,
     lpSymbol: 'BRIS-BUSD LP',
     lpAddresses: {
@@ -55,7 +45,16 @@ const farms: FarmConfig[] = [
     token: tokens.bris,
     quoteToken: tokens.busd,
   },
-
+  {
+    pid: 9,
+    lpSymbol: 'BUSD-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x5E7239dFc60D54a4c469bfb3a1804C27a4A214D5',
+    },
+    token: tokens.busd,
+    quoteToken: tokens.wbnb,
+  },
 //   /**
 //    * V3 by order of release (some may be out of PID order due to multiplier boost)
 //    */
