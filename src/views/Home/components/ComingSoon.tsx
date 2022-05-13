@@ -43,11 +43,18 @@ const ComingSoon = () => {
         showIndicators={false}
         width='100'        
         >
-            <div>
+            {/* <div>
                 <SlideImg src="/images/adverts/pools-coming-soon-big.svg" alt='Pools coming soon'/>
             </div>
             <div>
                 <SlideImg src="/images/adverts/farms-coming-soon-big.svg" alt='Farms coming soon'/>
+            </div> */}
+
+            <div style={carouseImg}>
+                <SlideImg src="/images/adverts/farms-live.jpg" alt='Live farms'/>
+            </div>
+            <div style={carouseImg}>
+                <SlideImg src="/images/adverts/pools-live.jpg" alt='Live pools'/>
             </div>
             <div style={carouseImg}>
                 <SlideImg src="/images/adverts/bris-astronaut-launchpad.jpg" alt='BRIS Astronaut launchpad'/>

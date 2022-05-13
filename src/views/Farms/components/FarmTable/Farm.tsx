@@ -31,6 +31,16 @@ const Container = styled.div`
   }
 `
 
+const HOT = styled.span`
+  display: inline-block;
+  border-radius: 50px;
+  padding: 2px 5px;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: #ff0000};
+`
+
+
 const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
   const { stakedBalance } = useFarmUser(pid)
   const { t } = useTranslation()
@@ -53,7 +63,8 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
       <IconImage src={`/images/farms/${image}.svg`} alt="icon" width={40} height={40} mr="8px" />
       <div>
         {handleRenderFarming()}
-        <Text bold>{label}</Text>
+        <Text bold>{label} <HOT>HOT</HOT> </Text>
+
       </div>
     </Container>
   )
