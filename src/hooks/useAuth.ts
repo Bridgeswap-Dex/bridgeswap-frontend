@@ -17,6 +17,7 @@ import { profileClear } from 'state/profile'
 import { useAppDispatch } from 'state'
 import { useTranslation } from 'contexts/Localization'
 
+declare global { interface Window {bitkeep: any;}}
 const useAuth = () => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
@@ -24,7 +25,7 @@ const useAuth = () => {
   const { toastError } = useToast()
 
   const login = useCallback(
-    (connectorID: ConnectorNames) => {
+    async (connectorID: ConnectorNames) => {
       const connector = connectorsByName[connectorID]
       if (connector) {
         activate(connector, async (error: Error) => {

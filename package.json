@@ -5,7 +5,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "yarn run transfer && react-scripts start",
-    "transfer": "cp -R ./vital-folders/@pancakeswap-libs ./node_modules && cp -R ./vital-folders/@pancakeswap ./node_modules",
+    "transfer": "xcopy .\\vital-folders\\@pancakeswap-libs .\\node_modules\\@pancakeswap-libs /E/H/C/I/Y && xcopy .\\vital-folders\\@pancakeswap .\\node_modules\\@pancakeswap /E/H/C/I/Y",
     "build": "yarn run transfer && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
