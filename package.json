@@ -5,7 +5,9 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "yarn run transfer && react-scripts start",
-    "transfer": "xcopy .\\vital-folders\\@pancakeswap-libs .\\node_modules\\@pancakeswap-libs /E/H/C/I/Y && xcopy .\\vital-folders\\@pancakeswap .\\node_modules\\@pancakeswap /E/H/C/I/Y",
+    "transfer": "run-script-os",
+    "transfer:darwin:linux": "cp -R ./vital-folders/@pancakeswap-libs ./node_modules && cp -R ./vital-folders/@pancakeswap ./node_modules",
+    "transfer:win32": "xcopy .\\vital-folders\\@pancakeswap-libs .\\node_modules\\@pancakeswap-libs /E/H/C/I/Y && xcopy .\\vital-folders\\@pancakeswap .\\node_modules\\@pancakeswap /E/H/C/I/Y",
     "build": "yarn run transfer && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -66,6 +68,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-transition-group": "^4.4.1",
+    "run-script-os": "^1.1.6",
     "split-grid": "^1.0.11",
     "styled-components": "^5.3.0",
     "swiper": "^6.6.1",

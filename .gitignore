@@ -40,3 +40,11 @@ yarn-debug.log*
 yarn-error.log*
 debug.log*
 
+# firebase
+.firebase
+.firebaserc
+firebase.json
+
+# yarn
+yarn.lock
+yarn-error.log

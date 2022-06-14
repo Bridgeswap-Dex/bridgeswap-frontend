@@ -28,6 +28,7 @@ const useAuth = () => {
     async (connectorID: ConnectorNames) => {
       const connector = connectorsByName[connectorID]
       if (connector) {
+        console.log("[DAVID] Connecting wallet... id = ", connectorID);
         activate(connector, async (error: Error) => {
           if (error instanceof UnsupportedChainIdError) {
             const hasSetup = await setupNetwork()

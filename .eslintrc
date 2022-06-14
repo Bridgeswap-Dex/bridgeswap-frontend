@@ -26,7 +26,9 @@
     "@typescript-eslint/no-explicit-any": 0,
     "radix": 0,
     "import/no-extraneous-dependencies": 0,
-    "jsx-a11y/media-has-caption": 0
+    "jsx-a11y/media-has-caption": 0,
+    "max-classes-per-file": ["error", 20],
+    "class-methods-use-this": ["off"]
     // End temporary rules
   }
 }

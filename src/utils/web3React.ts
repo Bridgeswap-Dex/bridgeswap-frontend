@@ -3,6 +3,7 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { BscConnector } from '@binance-chain/bsc-connector'
 import { ConnectorNames } from '@pancakeswap/uikit'
 import Web3 from 'web3'
+import {BitKeepConnector} from './bitKeepConnector'
 import getNodeUrl from './getRpcUrl'
 
 const POLLING_INTERVAL = 12000
@@ -19,12 +20,12 @@ const walletconnect = new WalletConnectConnector({
 })
 
 const bscConnector = new BscConnector({ supportedChainIds: [chainId] })
-
+const bitKeepConnector = new BitKeepConnector({ supportedChainIds: [chainId] })
 export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Injected]: injected,
   [ConnectorNames.WalletConnect]: walletconnect,
   [ConnectorNames.BSC]: bscConnector,
-  [ConnectorNames.BitKeep]: injected,
+  [ConnectorNames.BitKeep]: bitKeepConnector,
 }
 
 export const getLibrary = (provider): Web3 => {
