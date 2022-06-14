@@ -4,7 +4,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Heading, Text, Button, Image, Card } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 
-
 const SlideImg = styled.img`
     width: 260px;
     height: 200px;
@@ -22,7 +21,6 @@ const SlideImg = styled.img`
         width: 600px;
         height: 200px;
     }
-
 `
 
 
