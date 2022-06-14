@@ -4009,6 +4009,11 @@ var ConnectorNames;
 
 var connectors = [
     {
+        title: "BitKeep Wallet",
+        icon: Icon$BitKeep,
+        connectorId: "BitKeep",
+    },
+    {
         title: "ONTOWallet",
         icon: Icon,
         connectorId: ConnectorNames.Injected,
@@ -4052,11 +4057,6 @@ var connectors = [
         title: "HyperPay Wallet",
         icon: Icon$HyperWallet,
         connectorId: ConnectorNames.Injected,
-    },
-    {
-        title: "BitKeep Wallet",
-        icon: Icon$BitKeep,
-        connectorId: "BitKeep",
     },
 ];
 var connectorLocalStorageKey = "connectorId";

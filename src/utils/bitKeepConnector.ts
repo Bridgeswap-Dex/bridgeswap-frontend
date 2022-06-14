@@ -3,7 +3,7 @@ import { AbstractConnectorArguments, ConnectorUpdate } from '@web3-react/types';
 
 // const BitKeepConnector = {
 //   activate: async function activate() {
-//     console.log("[DAVID] BitKeepConnector :: activate!");
+//     console.info("[DAVID] BitKeepConnector :: activate!");
 //   }
 // }
 
@@ -35,19 +35,19 @@ export class UserRejectedRequestError extends Error {
 export class BitKeepConnector extends AbstractConnector {
   constructor(kwargs: AbstractConnectorArguments) {
     super(kwargs);
-    console.log(kwargs);
+    console.info(kwargs);
     this.handleChainChanged = this.handleChainChanged.bind(this);
     this.handleAccountsChanged = this.handleAccountsChanged.bind(this)
     this.handleClose = this.handleClose.bind(this)
   }
 
   private handleChainChanged(chainId: string | number): void {
-    console.log("Handling 'chainChanged' event with payload", chainId)
+    console.info("Handling 'chainChanged' event with payload", chainId)
     this.emitUpdate({ chainId, provider: window.bitkeep.ethereum })
   }
 
   private handleAccountsChanged(accounts: string[]): void {
-    console.log("Handling 'accountsChanged' event with payload", accounts)
+    console.info("Handling 'accountsChanged' event with payload", accounts)
     if (accounts.length === 0) {
       this.emitDeactivate()
     } else {
@@ -56,14 +56,14 @@ export class BitKeepConnector extends AbstractConnector {
   }
 
   private handleClose(code: number, reason: string): void {
-    console.log("Handling 'close' event with payload", code, reason)
+    console.info("Handling 'close' event with payload", code, reason)
     this.emitDeactivate()
   }
 
   public async activate() : Promise<ConnectorUpdate> {
     if (!window.bitkeep.ethereum)
       throw new NoBitkeepProviderError();
-    const ethereum = window.bitkeep.ethereum;
+    const ethereum = window?.bitkeep?.ethereum;
     if (ethereum.on) {
       ethereum.on('chainChanged', this.handleChainChanged)
       ethereum.on('accountsChanged', this.handleAccountsChanged)
@@ -102,7 +102,7 @@ export class BitKeepConnector extends AbstractConnector {
       throw new NoBitkeepProviderError();
     }
     
-    const ethereum = window.bitkeep.ethereum;
+    const ethereum = window?.bitkeep?.ethereum;
     let chainId;
     try {
       chainId = await (ethereum.send as Send)('eth_chainId').then(parseSendReturn)
@@ -146,7 +146,7 @@ export class BitKeepConnector extends AbstractConnector {
       throw new NoBitkeepProviderError()
     }
 
-    const ethereum = window.bitkeep.ethereum;
+    const ethereum = window?.bitkeep?.ethereum;
     let account
     try {
       account = await (ethereum.send as Send)('eth_accounts').then(sendReturn => parseSendReturn(sendReturn)[0])
