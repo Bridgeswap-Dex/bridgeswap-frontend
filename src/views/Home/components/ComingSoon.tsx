@@ -49,19 +49,19 @@ const ComingSoon = () => {
             </div> */}
 
             <div style={carouseImg}>
-                <SlideImg src="/images/adverts/farms-live.jpg" alt='Live farms'/>
+                <SlideImg src="/images/adverts/bridgeswap-farms.jpg" alt='bridgeswap farms'/>
             </div>
             <div style={carouseImg}>
-                <SlideImg src="/images/adverts/pools-live.jpg" alt='Live pools'/>
+                <SlideImg src="/images/adverts/bridgeswap-lottery.jpg" alt='bridgeswap lottery'/>
             </div>
             <div style={carouseImg}>
-                <SlideImg src="/images/adverts/bris-astronaut-launchpad.jpg" alt='BRIS Astronaut launchpad'/>
+                <SlideImg src="/images/adverts/bridgeswap-pools.jpg" alt='bridgeswap-pools'/>
             </div>
             <div style={carouseImg}>
-                <SlideImg src="/images/adverts/lottery-coming-soon-big.jpg" alt='Lottery coming soon'/>
+                <SlideImg src="/images/adverts/defi2.0-zap.jpg" alt='defi2.0-zap'/>
             </div>
             <div style={carouseImg}>
-                <SlideImg src="/images/adverts/ernx-ido-coming-soon-big.jpg" alt='IDO coming soon'/>
+                <SlideImg src="/images/adverts/referral-program.jpg" alt='referral-program'/>
             </div>
             
         </Carousel>

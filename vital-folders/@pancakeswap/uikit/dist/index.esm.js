@@ -4032,7 +4032,7 @@ var connectors = [
         title: "MathWallet",
         icon: Icon$6,
         connectorId: ConnectorNames.Injected,
-    },
+    }, 
     {
         title: "TokenPocket",
         icon: Icon$5,
