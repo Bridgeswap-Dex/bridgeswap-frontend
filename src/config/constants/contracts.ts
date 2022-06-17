@@ -9,7 +9,7 @@ export default {
   },
   newlottery: {
     97: '',
-    56: '0x435885eE67DF51F35A107C8950d649bB1845D64c',
+    56: '0x57477f43a22F6b8D729428153D2B85cE71d1a587',
   },
   lottery: {
     97: '0x99c2EcD51d52c036B00130d882Bc65f20Fdecf9f',
