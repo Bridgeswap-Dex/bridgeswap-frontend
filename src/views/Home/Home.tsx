@@ -2,7 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link as ReactLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
-import { Heading, Text, BaseLayout, Button, Image, Card, Flex, Grid, Link, useModal, Skeleton } from '@pancakeswap/uikit'
+import {
+  Heading,
+  Text,
+  BaseLayout,
+  Button,
+  Image,
+  Card,
+  Flex,
+  Grid,
+  Link,
+  useModal,
+  Skeleton,
+} from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -33,7 +45,7 @@ const Hero = styled.div`
   padding: 0px 30px;
   padding-top: 16px;
   text-align: center;
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
     background-position: left center, right center;
     max-width: 90%;
@@ -125,7 +137,7 @@ const BridgeBoard = styled.div`
   align-items: center;
   box-shadow: 3px 7px 5px 7px #121254;
   border-radius: 20px;
-  background: #09092B;
+  background: #09092b;
   max-width: 98%;
   display: flex;
   justify-content: center;
@@ -134,7 +146,7 @@ const BridgeBoard = styled.div`
   margin-bottom: 32px;
   padding: 10px 30px;
   text-align: center;
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
     max-width: 90%;
     padding: 20px 40px;
@@ -162,7 +174,6 @@ const PerformersFlex = styled(Flex)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     justify-content: flex-start;
-    
   }
 `
 
@@ -171,7 +182,6 @@ const Performer = styled(Flex)`
   align-items: center;
   justify-content: center;
   margin: 10px;
-  
 `
 const TopSymbol = styled(Flex)`
   align-items: center;
@@ -190,9 +200,7 @@ const StatsValue = styled(Flex)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
-    
   }
-
 `
 
 const BridgeLottery = styled(Flex)`
@@ -227,10 +235,9 @@ const Partners = styled(Grid)`
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 21px;
   }
-
 `
 const Partner = styled.div`
-  background: #18186B;
+  background: #18186b;
   height: auto;
   width: 75px;
   border-radius: 5px;
@@ -262,27 +269,73 @@ const LoadingTopPerformers = styled.div`
   height: 80px;
 `
 
+const Title = styled.div`
+  display: flex;
+  ${({ theme }) => theme.mediaQueries.xs} {
+    flex-flow: column-reverse;
+  }
+  ${({ theme }) => theme.mediaQueries.sm} {
+    flex-flow: wrap;
+  }
+`
+
+const AuditCard: React.FC = () => {
+  return (
+    <div style={{ display:"flex", width:"100%", justifyContent: "end" }}>
+      <div
+        style={{
+          padding: '16px',
+          display: 'flex',
+          backgroundColor: '#333376',
+          borderRadius: '8px',
+          color: 'white',
+          height: 'fit-content',
+          width: 'fit-content',
+        }}
+      >
+        <img src="images/symbols/certik.png" alt="certik-brand" style={{ width: '32px', height: 'fit-content' }} />
+        <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '8px' }}>
+          <div style={{ textAlign: 'left', fontSize: '12px', marginBottom: '4px' }}>
+            AUDITED BY
+            <img src="images/symbols/check-shield.png" alt="audit-check" width="16px" style={{ paddingLeft: '4px' }} />
+          </div>
+          <a href="http://audits.finance/" style={{ fontSize: '14px' }}>
+            AUDITS.FINANCE
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
   const maxBalance = useBrisBalance()
-  const [onPresentBuyTicketsModal] = useModal(<BuyTicketModal max={new BigNumber(maxBalance)}/>)
-  
+  const [onPresentBuyTicketsModal] = useModal(<BuyTicketModal max={new BigNumber(maxBalance)} />)
 
   return (
     <Page>
       <Hero>
+        <AuditCard />
         <Heading as="h1" scale="xl" mb="24px" color="blue">
           {t('Bridging Defi on Web 3.0')}
         </Heading>
-        <Text color="white">{t('Bridgeswap is bridging Defi on Web 3.0 from traditional finance in a decentralized manner to create a fair global economy that is sustainable, accessible, and community-driven DAO.')}</Text>
+        <Text color="white">
+          {t(
+            'Bridgeswap is bridging Defi on Web 3.0 from traditional finance in a decentralized manner to create a fair global economy that is sustainable, accessible, and community-driven DAO.',
+          )}
+        </Text>
         {/* <Button variant="primary" style={{margin: "20px 0px"}}>Learn more</Button> */}
-        <LearnMoreBtn href='https://bridgeswap-exchange-1.gitbook.io/bridgeswap/' target='_blank' rel='noreferrer noopener'>Learn more</LearnMoreBtn>
-      
+        <LearnMoreBtn
+          href="https://bridgeswap-exchange-1.gitbook.io/bridgeswap/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Learn more
+        </LearnMoreBtn>
       </Hero>
       <div>
-        
         <ComingSoon />
         <BridgeBoard>
           <Heading as="h3" mb="24px" color="primary">
@@ -293,11 +346,13 @@ const Home: React.FC = () => {
               <Heading as="h5" mb="10px" color="text">
                 {t('Trade')}
               </Heading>
-              <Text small fontSize='12px' color="text">
+              <Text small fontSize="12px" color="text">
                 {t('Instantly swap crypto tokens: NO registration or account needed.')}
               </Text>
               <FeatBtn variant="secondary" scale="sm">
-                <Link external href='https://dex.bridgeswap.app/#/swap' color='text'>Enter exchange</Link>
+                <Link external href="https://dex.bridgeswap.app/#/swap" color="text">
+                  Enter exchange
+                </Link>
               </FeatBtn>
             </Card>
 
@@ -305,11 +360,13 @@ const Home: React.FC = () => {
               <Heading as="h5" mb="10px" color="text">
                 {t('Farms')}
               </Heading>
-              <Text fontSize='12px' color="text">
+              <Text fontSize="12px" color="text">
                 {t('Provide liqudity to earn yield.')}
               </Text>
               <FeatBtn variant="secondary" scale="sm">
-                <Link href='https://dex.bridgeswap.app/#/pool' color='text'>Add liquidity</Link>
+                <Link href="https://dex.bridgeswap.app/#/pool" color="text">
+                  Add liquidity
+                </Link>
               </FeatBtn>
             </Card>
 
@@ -317,11 +374,13 @@ const Home: React.FC = () => {
               <Heading as="h3" mb="12px" color="text">
                 {t('Pools')}
               </Heading>
-              <Text small fontSize='12px' color="text">
+              <Text small fontSize="12px" color="text">
                 {t('Stake tokens, earn passive inome with crypto.')}
               </Text>
               <FeatBtn variant="secondary" scale="sm">
-                <ReactLink to='/pools' color='text'>Enter pools</ReactLink>
+                <ReactLink to="/pools" color="text">
+                  Enter pools
+                </ReactLink>
               </FeatBtn>
             </Card>
 
@@ -329,11 +388,13 @@ const Home: React.FC = () => {
               <Heading as="h5" mb="10px" color="text">
                 {t('Defi 2.0 Zap')}
               </Heading>
-              <Text small fontSize='12px' color="text">
+              <Text small fontSize="12px" color="text">
                 {t('Swap LPs to receive discounted BRIS tokens.')}
               </Text>
               <FeatBtn variant="secondary" scale="sm">
-                <ReactLink to='/defi' color='text'>Swap now</ReactLink>
+                <ReactLink to="/defi" color="text">
+                  Swap now
+                </ReactLink>
               </FeatBtn>
             </Card>
 
@@ -341,24 +402,25 @@ const Home: React.FC = () => {
               <Heading as="h5" mb="10px" color="text">
                 {t('Lottery')}
               </Heading>
-              <Text small fontSize='12px' color="text">
+              <Text small fontSize="12px" color="text">
                 {t('Provably fair, on-chain game. WIN BIG!!!')}
               </Text>
               <FeatBtn variant="secondary" scale="sm">
-                <ReactLink to='/lottery'>Play now</ReactLink>
+                <ReactLink to="/lottery">Play now</ReactLink>
               </FeatBtn>
             </Card>
 
-            <Card p="15px" style={{background: "linear-gradient(155.08deg, #FA00FF -35.34%, #17D2FB 134.08%)"}}>
+            <Card p="15px" style={{ background: 'linear-gradient(155.08deg, #FA00FF -35.34%, #17D2FB 134.08%)' }}>
               <Heading as="h5" mb="10px" color="text">
                 {t('Referral Program')}
               </Heading>
-              <Text small fontSize='12px' color="text">
+              <Text small fontSize="12px" color="text">
                 {t('Share your referral link, invite your fiend and earn 10% of their yields FOREVER!')}
               </Text>
-              <Button as={ReactLink} to="/referral" variant="primary" scale="sm" style={{margin: "20px 0px"}}>Invite friends</Button>
+              <Button as={ReactLink} to="/referral" variant="primary" scale="sm" style={{ margin: '20px 0px' }}>
+                Invite friends
+              </Button>
             </Card>
-            
           </FeatsGrid>
         </BridgeBoard>
 
@@ -367,7 +429,7 @@ const Home: React.FC = () => {
             {t('Top performers')}
           </Heading>
           <LoadingTopPerformers>
-            <Skeleton variant='rect' />
+            <Skeleton variant="rect" />
           </LoadingTopPerformers>
           {/* <FeatsGrid>
             <Card style={{width: "100%", border: "20x solid white"}}>
@@ -434,30 +496,38 @@ const Home: React.FC = () => {
         <StatsValue>
           <BridgeLottery>
             <Text fontSize="12px" mb="15px" color="text">
-              {t("The BridgeSwap Lottery")}
-            </Text><Text fontWeight="700" mb="15px" fontSize="42px">
-              {t("Win $0")}
+              {t('The BridgeSwap Lottery')}
+            </Text>
+            <Text fontWeight="700" mb="15px" fontSize="42px">
+              {t('Win $0')}
             </Text>
             <Text fontSize="12px" mb="22px" color="text">
-              {t("in prizes")}
+              {t('in prizes')}
             </Text>
-            <Button variant="primary" scale="sm" style={{margin: "10px auto", width: "200px"}} onClick={onPresentBuyTicketsModal}>Buy tickets</Button>
+            <Button
+              variant="primary"
+              scale="sm"
+              style={{ margin: '10px auto', width: '200px' }}
+              onClick={onPresentBuyTicketsModal}
+            >
+              Buy tickets
+            </Button>
           </BridgeLottery>
           <StatsFigures>
-            <CakeStats/>
+            <CakeStats />
             <TotalValueLockedCard />
           </StatsFigures>
         </StatsValue>
 
-        <BridgeBoard style={{ marginTop: "20px" }}>
+        <BridgeBoard style={{ marginTop: '20px' }}>
           <Heading as="h5" pt="12px" mb="30px" color="blue">
             {t('BridgeSwap Partners')}
           </Heading>
-              <Partners>
-                {
-                  partners.map((partner) => <Skeleton />)
-                }
-              </Partners>
+          <Partners>
+            {partners.map((partner) => (
+              <Skeleton />
+            ))}
+          </Partners>
         </BridgeBoard>
       </div>
     </Page>

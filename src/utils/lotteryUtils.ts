@@ -81,6 +81,7 @@ export const getLotteryInfo = async (lotteryContract, lotteryid) => {
 }
 
 export const buyTickets = async (lotteryContract, lotteryid, numbersList, account) => {
+  console.log("[DAVID] buyTickets :: contract = ", lotteryContract._address, lotteryid, numbersList);
   try {
     return lotteryContract.methods
       .buyTickets(lotteryid, numbersList)
