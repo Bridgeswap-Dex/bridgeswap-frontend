@@ -25,7 +25,7 @@ export default {
   },
   referral: {
     97: '',
-    56: '0xeF058F4FB9901004ddF78a13E8a3E814F99e3535',
+    56: '0xE04111e39273Dde1CE37Dc7C1cc5ECB41c966FA1',
   },
   multiCall: {
     56: '0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B',

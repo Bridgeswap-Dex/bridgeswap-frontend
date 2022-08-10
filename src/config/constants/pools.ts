@@ -8,7 +8,7 @@ const pools: PoolConfig[] = [
     earningToken: tokens.bris,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x3ae4688Cfe3c1B6746b8DF1e90c942c073B2D08E',
+      56: '0x0fb702557f4c0ab1ce0d9a1c37296409c5f57d06',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

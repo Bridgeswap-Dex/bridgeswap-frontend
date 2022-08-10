@@ -1,12 +1,6 @@
 import { AbstractConnector } from '@web3-react/abstract-connector';
 import { AbstractConnectorArguments, ConnectorUpdate } from '@web3-react/types';
 
-// const BitKeepConnector = {
-//   activate: async function activate() {
-//     console.info("[DAVID] BitKeepConnector :: activate!");
-//   }
-// }
-
 export type SendReturnResult = { result: any }
 export type SendReturn = any
 type Send = (method: string, params?: any[]) => Promise<SendReturnResult | SendReturn>;

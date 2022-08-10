@@ -187,6 +187,7 @@ const Pools: React.FC = () => {
       )
     }
 
+    console.log("[DAVID] chosenPools = ", chosenPools);
     return sortPools(chosenPools).slice(0, numberOfPoolsVisible)
   }
 
