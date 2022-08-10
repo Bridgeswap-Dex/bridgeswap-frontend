@@ -6,7 +6,7 @@ const tokens = {
   bris: {
     symbol: 'BRIS',
     address: {
-      56: '0x88C945170267BA9b7959E3f07706846890F79924',
+      56: '0x79De52900178bD90c98E278cC30A635E65B18B1A',
       97: '',
     },
     decimals: 18,
