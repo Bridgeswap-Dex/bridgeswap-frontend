@@ -179,6 +179,7 @@ export const usePools = (account): { pools: Pool[]; userDataLoaded: boolean } =>
     pools: state.pools.data,
     userDataLoaded: state.pools.userDataLoaded,
   }))
+  console.log("[DAVID](1) pools = ", pools);
   return { pools: pools.map(transformPool), userDataLoaded }
 }
 
@@ -331,12 +332,12 @@ export const useAchievements = () => {
 }
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const bnbBusdFarm = useFarmFromPid(9)
+  const bnbBusdFarm = useFarmFromPid(3)
   return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(8)
+  const cakeBnbFarm = useFarmFromPid(1)
   return new BigNumber(cakeBnbFarm.token.busdPrice)
 }
 

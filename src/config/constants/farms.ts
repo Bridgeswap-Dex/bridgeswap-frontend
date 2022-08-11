@@ -26,27 +26,27 @@ const farms: FarmConfig[] = [
   //   quoteToken: tokens.wbnb,
   // },
   {
-    pid: 8,
+    pid: 1,
     lpSymbol: 'BRIS-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0xed41AC20e33b4bAa8Ac2f28c13D43Dbb6bAAAcEf',
+      56: '0x8B3b22B12bF85F8bC1C6e17Bd09329FbAaFF5f7D',
     },
     token: tokens.bris,
     quoteToken: tokens.wbnb,
   },
   {
-    pid: 10,
+    pid: 2,
     lpSymbol: 'BRIS-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x39CaadC85DB5559d1116DDd0620024C90131a991',
+      56: '0x9ED391218177B6F498625Bf58b8F1c38612630FC',
     },
     token: tokens.bris,
     quoteToken: tokens.busd,
   },
   {
-    pid: 9,
+    pid: 3,
     lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',

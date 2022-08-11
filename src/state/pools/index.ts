@@ -174,6 +174,7 @@ export const PoolsSlice = createSlice({
   reducers: {
     setPoolsPublicData: (state, action) => {
       const livePoolsData: Pool[] = action.payload
+      console.log("[DAVID](reducer: pools) setPoolsPublicData :: ", livePoolsData);
       state.data = state.data.map((pool) => {
         const livePoolData = livePoolsData.find((entry) => entry.sousId === pool.sousId)
         return { ...pool, ...livePoolData }
@@ -190,7 +191,6 @@ export const PoolsSlice = createSlice({
     updatePoolsUserData: (state, action) => {
       const { field, value, sousId } = action.payload
       const index = state.data.findIndex((p) => p.sousId === sousId)
-
       if (index >= 0) {
         state.data[index] = { ...state.data[index], userData: { ...state.data[index].userData, [field]: value } }
       }
