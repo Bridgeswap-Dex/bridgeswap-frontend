@@ -39,7 +39,6 @@ export const getTokenPricesFromFarm = (farms: Farm[]) => {
     /* eslint-disable no-param-reassign */
     if (!prices[quoteTokenAddress]) {
       prices[quoteTokenAddress] = new BigNumber(farm.quoteToken.busdPrice).toNumber()
-      console.log("[DAVID] getTokenPricesFromFarm :: prices[quoteTokenAddress] = ", prices[quoteTokenAddress]);
     }
     if (!prices[tokenAddress]) {
       prices[tokenAddress] = new BigNumber(farm.token.busdPrice).toNumber()

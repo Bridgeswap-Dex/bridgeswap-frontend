@@ -30,7 +30,6 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
   const needsApproval = !allowance.gt(0) && !isBnbPool
   const isStaked = stakedBalance.gt(0)
   const isLoading = !userData
-
   return (
     <Flex flexDirection="column">
       <Flex flexDirection="column">
