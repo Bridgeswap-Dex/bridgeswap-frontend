@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useGetStats } from 'hooks/api'
+import { useFarms } from 'state/hooks'
 
 const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
@@ -14,8 +15,23 @@ const TotalValueLockedCard = () => {
   const { t } = useTranslation()
   const data = useGetStats()
   // const tvl = data ? data.tvl.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
-  const tvl = 0
 
+  const { data: farmsLP, userDataLoaded } = useFarms();
+  console.log("[DAVID] TotalValueLockedCard :: farms = ", farmsLP);
+  const tvl1 = farmsLP.reduce((accum, farm) => {
+    const tokenAmount = parseFloat(farm?.tokenAmountTotal);
+    const tokenAmountInBusd = tokenAmount * parseFloat(farm?.token?.busdPrice);
+
+    const qTokenAmount = parseFloat(farm?.quoteTokenAmountTotal);
+    const qTokenAmountInBusd = qTokenAmount * parseFloat(farm?.quoteToken?.busdPrice);
+
+    const totalDepositedBusd = tokenAmountInBusd + qTokenAmountInBusd;
+    if (Number.isNaN(totalDepositedBusd))
+      return accum;
+    return accum + totalDepositedBusd;
+  }, 0);
+  const tvl = tvl1.toFixed(3);
+  console.log("[DAVID] TVL = ", tvl1);
   return (
     <StyledTotalValueLockedCard>
       <CardBody>

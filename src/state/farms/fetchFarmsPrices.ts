@@ -76,11 +76,11 @@ const fetchFarmsPrices = async (farms) => {
   const bnbBusdFarm = farms.find((farm: Farm) => farm.pid === 3)
   const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
   const farmsWithPrices = farms.map((farm) => {
-    console.log("[DAVID](fetchFarmsPrices) farm = ", farm);
     const quoteTokenFarm = getFarmFromTokenSymbol(farms, farm.quoteToken.symbol)
+    console.log("[DAVID](fetchFarmsPrices) farm = ", farm, bnbPriceBusd.toString());
     const baseTokenPrice = getFarmBaseTokenPrice(farm, quoteTokenFarm, bnbPriceBusd)
     const quoteTokenPrice = getFarmQuoteTokenPrice(farm, quoteTokenFarm, bnbPriceBusd)
-    console.log("[DAVID](fetchFarmsPrices) baseTokenPrice, quoteTokenPrice", baseTokenPrice, quoteTokenPrice);
+    console.log("[DAVID](fetchFarmsPrices) baseTokenPrice, quoteTokenPrice", baseTokenPrice.toString(), quoteTokenPrice.toString());
     const token = { ...farm.token, busdPrice: baseTokenPrice.toJSON() }
     const quoteToken = { ...farm.quoteToken, busdPrice: quoteTokenPrice.toJSON() }
     return { ...farm, token, quoteToken }
