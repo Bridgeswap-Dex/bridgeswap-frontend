@@ -55,6 +55,18 @@ const farms: FarmConfig[] = [
     token: tokens.busd,
     quoteToken: tokens.wbnb,
   },
+
+  {
+    pid: 4,
+    lpSymbol: 'TND-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x5E270C50F392aeFC394D8Dad644Fb4ce07a8cc58',
+    },
+    token: tokens.tnd,
+    quoteToken: tokens.wbnb,
+  },
+  
 //   /**
 //    * V3 by order of release (some may be out of PID order due to multiplier boost)
 //    */

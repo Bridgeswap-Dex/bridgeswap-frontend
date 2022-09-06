@@ -17,7 +17,6 @@ const TotalValueLockedCard = () => {
   // const tvl = data ? data.tvl.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
 
   const { data: farmsLP, userDataLoaded } = useFarms();
-  console.log("[DAVID] TotalValueLockedCard :: farms = ", farmsLP);
   const tvl1 = farmsLP.reduce((accum, farm) => {
     const tokenAmount = parseFloat(farm?.tokenAmountTotal);
     const tokenAmountInBusd = tokenAmount * parseFloat(farm?.token?.busdPrice);
@@ -31,7 +30,6 @@ const TotalValueLockedCard = () => {
     return accum + totalDepositedBusd;
   }, 0);
   const tvl = tvl1.toFixed(3);
-  console.log("[DAVID] TVL = ", tvl1);
   return (
     <StyledTotalValueLockedCard>
       <CardBody>

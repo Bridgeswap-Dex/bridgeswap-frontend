@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import { Link as ReactLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
@@ -27,6 +27,13 @@ import WinCard from 'views/Home/components/WinCard'
 import partners from 'config/constants/partners'
 import useBrisBalance from 'hooks/useGetBrisBalance'
 import BuyTicketModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
+import { useFarms, usePools, usePriceCakeBusd } from 'state/hooks'
+import { useWeb3React } from '@web3-react/core'
+import { getFarmApr } from 'utils/apr'
+import { Farm } from 'state/types'
+import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/CardActionsContainer'
+import useFarmsWithApr from 'hooks/useFarmsWithApr'
+import Apr from '../Farms/components/FarmTable/Apr'
 import ComingSoon from './components/ComingSoon'
 
 const Hero = styled.div`
@@ -219,6 +226,18 @@ const BridgeLottery = styled(Flex)`
 const StatsFigures = styled.div`
   width: 100%;
 `
+const Performers = styled(Grid)`
+  width: 100%;
+  grid-column-gap: 16px;
+  grid-row-gap: 8px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ${({ theme }) => theme.mediaQueries.lg} {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: column;
+  }
+`
 const Partners = styled(Grid)`
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
@@ -310,9 +329,34 @@ const AuditCard: React.FC = () => {
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
+  const { data: farms } = useFarms();
+  const cakePrice = usePriceCakeBusd();
+  const farmsWitApr = useFarmsWithApr();
 
   const maxBalance = useBrisBalance()
   const [onPresentBuyTicketsModal] = useModal(<BuyTicketModal max={new BigNumber(maxBalance)} />)
+  const farmsList = useCallback(
+    (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
+      const farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
+        if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
+          return farm
+        }
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        const apr = getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity);
+        
+        return { ...farm, apr, liquidity: totalLiquidity }
+      })
+
+      return farmsToDisplayWithAPR
+    },
+    [cakePrice],
+  );
+
+  const farmsMemoized = useMemo(() => {
+    let farmsStaked = [];
+    farmsStaked = farmsList(farms);
+    return farmsStaked;
+  }, [farmsList, farms])
 
   return (
     <Page>
@@ -428,6 +472,24 @@ const Home: React.FC = () => {
           <Heading as="h5" mb="10px" color="text">
             {t('Top performers')}
           </Heading>
+          {/* <Performers>
+            {
+              farmsWitApr.map((f, i) => (
+                <Card p="4px" style={{borderRadius:"8px"}}>
+                  <Text small textAlign="left">
+                    {f.lpSymbol}
+                  </Text>
+                  {
+                    f?.apr ? <Text small textAlign="left">{f.apr}</Text>
+                    : <Skeleton variant="rect" />
+                  }
+                  <Text small textAlign="left">
+                    APR
+                  </Text>
+                </Card>
+              ))
+            }
+          </Performers>           */}
           <LoadingTopPerformers>
             <Skeleton variant="rect" />
           </LoadingTopPerformers>

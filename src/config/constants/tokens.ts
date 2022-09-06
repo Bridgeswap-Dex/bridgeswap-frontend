@@ -453,6 +453,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
   },
+  tnd: {
+    symbol: 'TND',
+    address: {
+      56: '0x1709a038b3FD06F2077Bb294d76D65ca92aA3190',
+      97: '',
+    },
+    decimals: 9,
+    projectLink: 'https://pancakeswap.finance/',
+  },
   blink: {
     symbol: 'BLINK',
     address: {

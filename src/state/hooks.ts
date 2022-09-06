@@ -179,7 +179,6 @@ export const usePools = (account): { pools: Pool[]; userDataLoaded: boolean } =>
     pools: state.pools.data,
     userDataLoaded: state.pools.userDataLoaded,
   }))
-  console.log("[DAVID](1) pools = ", pools);
   return { pools: pools.map(transformPool), userDataLoaded }
 }
 
