@@ -1,4 +1,4 @@
-#BridgeSwap Frontend
+#Doge Gold Floki Frontend
 
 This project contains the main features of the bridgeswap application.
 
