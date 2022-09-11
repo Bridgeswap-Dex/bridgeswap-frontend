@@ -6,7 +6,7 @@ import {
   dark as darkBase,
   PancakeTheme,
   SvgProps as svgProps,
-} from '@pancakeswap-libs/uikit'
+} from '@pancakeswap/uikit'
 
 // customize light theme
 const light: PancakeTheme = lightBase
