@@ -39,7 +39,7 @@ import ComingSoon from './components/ComingSoon'
 const Hero = styled.div`
   align-items: center;
   border-radius: 20px;
-  background-image: linear-gradient(245.94deg, rgba(8, 8, 56, 0.2) -63.8%, rgba(17, 17, 139, 0.2) 73.44%);
+  background-image: linear-gradient(245.94deg, rgba(8, 8, 56, 0.2) -63.8%, rgba(0, 0, 0, 0.2) 73.44%);
   backdrop-filter: blur(20px);
   background-repeat: no-repeat;
   background-position: top center;
